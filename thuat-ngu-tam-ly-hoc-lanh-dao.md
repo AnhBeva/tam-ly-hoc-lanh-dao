@@ -1,0 +1,26 @@
+# Bảng thuật ngữ cốt lõi
+
+> Dùng thuật ngữ để quan sát rõ hơn, hỏi đúng hơn và hành động có trách nhiệm hơn. Không dùng thuật ngữ để gắn nhãn, chẩn đoán hoặc hạ thấp con người.
+
+| Thuật ngữ | Nhóm | Định nghĩa ngắn | Bản chất cần hiểu | Vì sao quan trọng | Dấu hiệu nhận biết | Câu hỏi ứng dụng |
+|---|---|---|---|---|---|---|
+| An toàn tâm lý | Đội nhóm | Cảm nhận có thể nêu câu hỏi, sai sót, bất đồng mà không bị hạ nhục. | Giảm rủi ro xã hội để học hỏi thật. | Quan trọng khi công việc phức tạp và cần báo lỗi sớm. | Người dám nói tin xấu. | Điều gì khiến người ta im lặng ở đây? |
+| Burnout | Sức khỏe tâm lý | Cạn kiệt liên quan công việc, xa cách/hoài nghi và giảm hiệu quả cảm nhận. | Tín hiệu mất cân bằng dài hạn giữa yêu cầu và nguồn lực. | Ảnh hưởng an toàn, hiệu suất, giữ chân người. | Mệt kéo dài, hoài nghi, lỗi tăng. | Nguồn gây cạn kiệt nằm ở cá nhân hay thiết kế công việc? |
+| Công bằng quy trình | Hiệu suất | Cảm nhận quyết định được đưa ra bằng quy trình rõ và nhất quán. | Người chấp nhận kết quả khó hơn khi tin quy trình công bằng. | Quan trọng trong đánh giá, thăng chức, kỷ luật. | Câu hỏi về tiêu chí và quyền được lắng nghe. | Quy trình này có giải thích được không? |
+| Dữ kiện | Phán đoán | Điều có thể quan sát, kiểm tra hoặc đối chiếu. | Nền để tách sự thật khỏi câu chuyện. | Giảm kết luận vội về con người. | Có thời điểm, hành vi, tài liệu cụ thể. | Tôi biết điều gì, hay chỉ đang suy đoán? |
+| Giả thuyết | Phán đoán | Lời giải thích tạm thời cần kiểm chứng. | Giữ tư duy mở trước nhiều nguyên nhân. | Quan trọng trong xung đột và hiệu suất. | Có thể nêu cách xác nhận/bác bỏ. | Điều gì sẽ làm tôi đổi ý? |
+| Động lực nội tại | Động lực | Nỗ lực xuất phát từ ý nghĩa, hứng thú, tiêu chuẩn nghề nghiệp. | Con người duy trì tốt hơn khi thấy việc đáng làm. | Quan trọng với sáng tạo và học hỏi. | Tự chủ, tò mò, cam kết chất lượng. | Việc này có ý nghĩa thật với người làm không? |
+| Động lực ngoại tại | Động lực | Nỗ lực do thưởng, phạt, địa vị hoặc áp lực. | Có tác dụng nhưng dễ làm hẹp chú ý nếu dùng sai. | Quan trọng trong thiết kế KPI. | Chạy theo chỉ số, né phạt. | Phần thưởng đang dạy hành vi nào? |
+| Thiên kiến xác nhận | Nhận thức | Xu hướng tìm thông tin ủng hộ niềm tin sẵn có. | Não bảo vệ câu chuyện quen thuộc. | Gây sai lầm tuyển dụng, chiến lược, đánh giá. | Chỉ hỏi người đồng ý. | Tôi đã tìm bằng chứng ngược chưa? |
+| Hiệu ứng hào quang | Nhận thức | Một ấn tượng lan sang đánh giá nhiều mặt. | Cảm giác chung thay thế tiêu chí cụ thể. | Dễ gặp trong tuyển dụng và đánh giá. | Người tự tin được chấm cao toàn diện. | Tiêu chí nào độc lập với ấn tượng chung? |
+| Tự điều chỉnh | Cảm xúc | Nhận biết trạng thái bên trong và chọn phản ứng phù hợp. | Tạo khoảng cách giữa xung lực và hành động. | Quan trọng khi quyền lực cao. | Tạm dừng trước khi phản ứng. | Phản ứng này phục vụ mục tiêu nào? |
+| Niềm tin | Quan hệ | Kỳ vọng người khác đủ năng lực, thiện chí và nhất quán. | Cho phép chấp nhận rủi ro phối hợp. | Nền của ủy quyền và phản hồi. | Chia sẻ vấn đề sớm. | Niềm tin đang thiếu ở năng lực, thiện chí hay nhất quán? |
+| Quyền lực | Đạo đức | Khả năng ảnh hưởng đến lựa chọn và rủi ro của người khác. | Làm tín hiệu của lãnh đạo có trọng lượng lớn. | Cần trong quyết định nhân sự và văn hóa. | Người dưới quyền tự kiểm duyệt. | Ai chịu chi phí nếu quyết định này sai? |
+| Thao túng | Đạo đức | Ảnh hưởng bằng cách che giấu mục đích hoặc giảm tự chủ. | Dùng hiểu biết tâm lý để khai thác người khác. | Rủi ro lớn trong lãnh đạo. | Thông tin một chiều, áp lực mơ hồ. | Người kia có quyền hiểu và từ chối không? |
+| Vai trò | Đội nhóm | Kỳ vọng về trách nhiệm và quyền quyết định. | Giảm khoảng trống và chồng chéo. | Quan trọng khi phối hợp phức tạp. | Việc rơi giữa các bộ phận. | Ai có quyền quyết định cuối cùng? |
+| Chuẩn mực | Đội nhóm | Luật không viết ra về hành vi được phép hoặc bị phạt. | Dạy con người cách tồn tại trong nhóm. | Là hạt nhân của văn hóa. | Mọi người biết điều không nên nói. | Hành vi nào đang được thưởng thật? |
+| Ủy quyền | Phát triển | Chuyển trách nhiệm kèm quyền, nguồn lực, tiêu chuẩn và kiểm tra. | Tăng năng lực hệ thống thay vì tạo nút cổ chai. | Quan trọng với mở rộng tổ chức. | Nhân viên tự quyết trong ranh giới. | Tôi đã giao quyền hay chỉ giao việc? |
+| Coaching | Phát triển | Hỏi và phản chiếu để người khác tự xây năng lực quyết định. | Chuyển tư duy về cho người học. | Quan trọng với lãnh đạo phát triển người. | Người được hỏi tự tạo phương án. | Câu hỏi nào giúp họ nhìn rõ hơn? |
+| Văn hóa | Tổ chức | Chuẩn mực và giả định định hình hành vi khi không ai nhìn. | Hệ thống dạy điều gì là sống còn. | Quyết định khả năng thực thi chiến lược. | Khác biệt giữa khẩu hiệu và hành vi. | Khủng hoảng này làm lộ giá trị gì? |
+| Bằng chứng | Đo lường | Thông tin đủ liên quan và tin cậy cho quyết định. | Giảm tùy tiện nhưng phải phù hợp mức rủi ro. | Quan trọng với chính sách nhân sự. | Dữ liệu, quan sát, phản hồi nhất quán. | Bằng chứng này đủ cho loại quyết định nào? |
+| Thử nghiệm an toàn | Đo lường | Can thiệp nhỏ có giả thuyết, chỉ số và tiêu chí dừng. | Học nhanh mà không đặt cược quá lớn. | Hữu ích khi đổi quy trình, văn hóa. | Pilot có phạm vi và thời hạn rõ. | Tôi có thể học điều này ở quy mô nhỏ hơn không? |

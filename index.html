@@ -1,0 +1,2224 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tâm lý học ứng dụng cho quản lý và lãnh đạo</title>
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --panel: rgba(255,255,255,.86);
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d8d8de;
+      --accent: #0071e3;
+      --accent-2: #34c759;
+      --code: #f0f2f5;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #fbfbfd 0%, var(--bg) 42rem);
+      line-height: 1.62;
+    }
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 72px 24px 34px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+    h1, h2, h3 { letter-spacing: 0; line-height: 1.12; }
+    .hero h1 {
+      max-width: 920px;
+      margin: 0;
+      font-size: 4.6rem;
+      line-height: .98;
+    }
+    .hero p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.22rem;
+      margin: 22px 0 0;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 720px;
+      margin-top: 32px;
+    }
+    .stat {
+      background: var(--panel);
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .stat strong { display: block; font-size: 1.8rem; line-height: 1; }
+    .stat span { color: var(--muted); font-size: .92rem; }
+    .shell {
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 28px;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 24px 80px;
+    }
+    nav {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+    nav a {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: .94rem;
+    }
+    nav a:hover { background: rgba(0,113,227,.08); }
+    nav span {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    main { min-width: 0; }
+    .lesson {
+      margin-bottom: 22px;
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+    }
+    .source-label {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: #eef5ff;
+      color: #0057b8;
+      font-size: .82rem;
+      font-weight: 650;
+    }
+    .lesson h1 { font-size: 2.65rem; margin: 0 0 18px; }
+    .lesson h2 { font-size: 1.65rem; margin-top: 38px; padding-top: 8px; }
+    .lesson h3 { font-size: 1.18rem; margin-top: 28px; }
+    p, li { font-size: 1rem; }
+    p { margin: 12px 0; }
+    ul { padding-left: 1.25rem; }
+    strong { font-weight: 760; }
+    blockquote {
+      margin: 18px 0;
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent);
+      background: #f3f8ff;
+      border-radius: 8px;
+      color: #24415f;
+    }
+    .table-wrap { width: 100%; overflow-x: auto; margin: 18px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 12px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f6f8fb; font-weight: 720; }
+    pre {
+      overflow: auto;
+      padding: 16px;
+      background: var(--code);
+      border-radius: 8px;
+      border: 1px solid #dfe3ea;
+    }
+    a { color: var(--accent); text-decoration-thickness: .08em; text-underline-offset: .18em; }
+    code { font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .92em; }
+    hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    @media (max-width: 860px) {
+      .hero { padding-top: 46px; }
+      .hero h1 { font-size: 2.45rem; }
+      .stats { grid-template-columns: 1fr; }
+      .shell { grid-template-columns: 1fr; padding-inline: 14px; }
+      nav { position: relative; top: 0; max-height: 360px; }
+      .lesson { padding: 24px 0; }
+      .lesson h1 { font-size: 2rem; }
+    }
+    @media print {
+      body { background: #fff; }
+      nav, .stats, .source-label { display: none; }
+      .shell { display: block; padding: 0; }
+      .lesson { box-shadow: none; border: 0; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">Nền tảng học tập</div>
+    <h1>Tâm lý học ứng dụng cho quản lý và lãnh đạo</h1>
+    <p>Một hệ thống học tập có cấu trúc, đi từ nền tảng, first principles, công cụ thực hành đến tài liệu tra cứu dễ đọc.</p>
+    <div class="stats">
+      <div class="stat"><strong>18</strong><span>module</span></div>
+      <div class="stat"><strong>22</strong><span>tài liệu nguồn</span></div>
+      <div class="stat"><strong>HTML</strong><span>sẵn sàng cho GitHub Pages</span></div>
+    </div>
+  </header>
+  <div class="shell">
+    <nav aria-label="Điều hướng giáo trình">
+      <a href="#README"><span>01</span>Tâm lý học ứng dụng cho quản lý và lãnh đạo</a>
+<a href="#ban-do-tam-ly-hoc-lanh-dao"><span>02</span>Bản đồ lĩnh vực: Tâm lý học ứng dụng cho quản lý và lãnh đạo</a>
+<a href="#giao-trinh-tam-ly-hoc-lanh-dao"><span>03</span>Giáo trình: Tâm lý học ứng dụng cho quản lý và lãnh đạo</a>
+<a href="#thuat-ngu-tam-ly-hoc-lanh-dao"><span>04</span>Bảng thuật ngữ cốt lõi</a>
+<a href="#Module-01-ban-chat-va-pham-vi"><span>05</span>Module 01: Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo</a>
+<a href="#Module-02-quan-sat-dien-giai-gia-thuyet"><span>06</span>Module 02: Quan sát, diễn giải, giả thuyết và kết luận</a>
+<a href="#Module-03-dong-luc-nhu-cau-va-nang-luong"><span>07</span>Module 03: Động lực, nhu cầu và năng lượng làm việc</a>
+<a href="#Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh"><span>08</span>Module 04: Nhận thức, thiên kiến và ra quyết định</a>
+<a href="#Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh"><span>09</span>Module 05: Cảm xúc, căng thẳng và tự điều chỉnh</a>
+<a href="#Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc"><span>10</span>Module 06: Khác biệt cá nhân, giá trị và năng lực</a>
+<a href="#Module-07-giao-tiep-lang-nghe-phan-hoi"><span>11</span>Module 07: Giao tiếp, lắng nghe và phản hồi</a>
+<a href="#Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem"><span>12</span>Module 08: Niềm tin, an toàn tâm lý và trách nhiệm</a>
+<a href="#Module-09-quyen-luc-anh-huong-va-dao-duc"><span>13</span>Module 09: Quyền lực, ảnh hưởng và đạo đức</a>
+<a href="#Module-10-xung-dot-dam-phan-va-sua-chua-quan-he"><span>14</span>Module 10: Xung đột, đàm phán và sửa chữa quan hệ</a>
+<a href="#Module-11-hieu-suat-trach-nhiem-va-cong-bang"><span>15</span>Module 11: Hiệu suất, trách nhiệm và công bằng</a>
+<a href="#Module-12-dong-luc-nhom-vai-tro-va-chuan-muc"><span>16</span>Module 12: Động lực nhóm, vai trò và chuẩn mực</a>
+<a href="#Module-13-thay-doi-hoc-hoi-va-thoi-quen"><span>17</span>Module 13: Thay đổi, học hỏi và thói quen</a>
+<a href="#Module-14-coaching-phat-trien-va-uy-quyen"><span>18</span>Module 14: Coaching, phát triển con người và ủy quyền</a>
+<a href="#Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich"><span>19</span>Module 15: Văn hóa, biểu tượng và hệ thống khuyến khích</a>
+<a href="#Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi"><span>20</span>Module 16: Sức khỏe tâm lý, burnout và ranh giới quản lý</a>
+<a href="#Module-17-khung-hoang-sai-pham-va-an-toan"><span>21</span>Module 17: Khủng hoảng, sai phạm và an toàn</a>
+<a href="#Module-18-bang-chung-do-luong-va-thuc-nghiem"><span>22</span>Module 18: Bằng chứng, đo lường và thực nghiệm trong lãnh đạo</a>
+    </nav>
+    <main>
+      <section class="lesson" id="README"><div class="source-label">README.md</div><h1 id="tam-ly-hoc-ung-dung-cho-quan-ly-va-lanh-dao">Tâm lý học ứng dụng cho quản lý và lãnh đạo</h1>
+<p>Nền tảng này giúp cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức hiểu tâm lý học ứng dụng từ gốc rễ: khái niệm, bản chất, cơ chế, mô hình, công cụ, ứng dụng, giới hạn và cách thực hành có trách nhiệm trong tổ chức.</p>
+<h2 id="loi-hua-hoc-tap">Lời hứa học tập</h2>
+<p>Sau khi học, người học có thể:</p>
+<ul>
+<li>Nhìn vấn đề con người theo nhiều tầng: cá nhân, quan hệ, nhóm, công việc, hệ thống và văn hóa.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi đánh giá hành vi.</li>
+<li>Dùng kiến thức về động lực, cảm xúc, nhận thức, quyền lực, xung đột, an toàn tâm lý và văn hóa để ra quyết định tốt hơn.</li>
+<li>Thiết kế cuộc trò chuyện, phản hồi, ủy quyền, thay đổi và đo lường theo hướng tăng rõ ràng, tự chủ, trách nhiệm và công bằng.</li>
+<li>Nhận ra ranh giới: quản lý không chẩn đoán, không trị liệu, không thao túng và phải chuyển tuyến khi có rủi ro sức khỏe, pháp lý hoặc an toàn.</li>
+</ul>
+<h2 id="doi-tuong-va-gia-dinh">Đối tượng và giả định</h2>
+<ul>
+<li>Đối tượng: quản lý mới, quản lý cấp trung, trưởng nhóm, founder, HRBP, lãnh đạo chức năng và người chuẩn bị lên vai trò lãnh đạo.</li>
+<li>Độ sâu: giáo trình thực hành chuyên nghiệp, không phải tài liệu self-help ngắn.</li>
+<li>Ngữ cảnh: tổ chức tri thức, vận hành, dịch vụ, sản phẩm, startup hoặc doanh nghiệp đang mở rộng.</li>
+<li>Giới hạn: tài liệu này không thay thế tư vấn tâm lý, tư vấn pháp lý, điều tra nhân sự chính thức hoặc điều trị y tế.</li>
+</ul>
+<h2 id="cau-truc-tai-lieu">Cấu trúc tài liệu</h2>
+<ul>
+<li><code>ban-do-tam-ly-hoc-lanh-dao.md</code>: bản đồ lĩnh vực và nguyên tắc phân chia.</li>
+<li><code>giao-trinh-tam-ly-hoc-lanh-dao.md</code>: lộ trình học 18 module.</li>
+<li><code>thuat-ngu-tam-ly-hoc-lanh-dao.md</code>: bảng thuật ngữ cốt lõi.</li>
+<li><code>Module-*.md</code>: bài học chuyên sâu theo từng chủ đề.</li>
+<li><code>build_platform_html.py</code>: script dựng website tĩnh.</li>
+<li><code>index.html</code>: website học tập có thể mở trực tiếp hoặc đưa lên GitHub Pages.</li>
+</ul>
+<h2 id="nguon-tham-chieu-nen">Nguồn tham chiếu nền</h2>
+<p>Nội dung được tổng hợp theo các nguyên lý ổn định của tâm lý học ứng dụng, tâm lý học tổ chức, khoa học hành vi và quản trị. Một số nguồn chính thức được dùng để đặt ranh giới và kiểm tra điểm nhạy cảm:</p>
+<ul>
+<li>WHO, <code>Guidelines on mental health at work</code>: https://www.who.int/publications/i/item/9789240053052</li>
+<li>WHO, <code>Mental health at work</code>: https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work</li>
+<li>National Academies, <code>Enhancing the Effectiveness of Team Science</code>: https://www.nationalacademies.org/publications/19007</li>
+<li>APA, các chủ đề phổ thông về khoa học tâm lý và nơi làm việc: https://www.apa.org/topics</li>
+</ul>
+<h2 id="cach-build-website">Cách build website</h2>
+<pre><code>
+python3 build_platform_html.py
+
+</code></pre>
+<p>Sau khi build, mở <code>index.html</code> trong trình duyệt. Website là HTML tĩnh, không cần backend.</p>
+<h2 id="xuat-ban-github-pages">Xuất bản GitHub Pages</h2>
+<p>Repository dự kiến: https://github.com/AnhBeva/tam-ly-hoc-lanh-dao</p>
+<p>Trang học tập dự kiến: https://anhbeva.github.io/tam-ly-hoc-lanh-dao/</p>
+<p>Thiết lập GitHub Pages khuyến nghị:</p>
+<ul>
+<li>Branch: <code>main</code></li>
+<li>Folder: <code>/root</code></li>
+<li>Entry point: <code>index.html</code></li>
+</ul>
+<p>Khi chỉnh sửa nội dung, hãy cập nhật các file Markdown nguồn trước, sau đó chạy lại:</p>
+<pre><code>
+python3 build_platform_html.py
+
+</code></pre>
+<p>Commit cả Markdown nguồn, <code>build_platform_html.py</code> và <code>index.html</code> để GitHub Pages luôn phục vụ bản mới nhất.</p>
+<h2 id="nguyen-tac-su-dung-co-trach-nhiem">Nguyên tắc sử dụng có trách nhiệm</h2>
+<ul>
+<li>Không dùng thuật ngữ tâm lý để gắn nhãn, làm xấu hổ hoặc kết luận bản chất con người.</li>
+<li>Không dùng kỹ thuật ảnh hưởng để che giấu mục tiêu, ép phục tùng hoặc khai thác điểm yếu.</li>
+<li>Luôn phân biệt quan sát, diễn giải, giả thuyết và kết luận.</li>
+<li>Khi có dấu hiệu rủi ro sức khỏe tâm thần, quấy rối, bạo lực, tự hại, phân biệt đối xử, vi phạm pháp lý hoặc an toàn, hãy dùng kênh chuyên môn phù hợp.</li>
+</ul></section><section class="lesson" id="ban-do-tam-ly-hoc-lanh-dao"><div class="source-label">ban-do-tam-ly-hoc-lanh-dao.md</div><h1 id="ban-do-linh-vuc-tam-ly-hoc-ung-dung-cho-quan-ly-va-lanh-dao">Bản đồ lĩnh vực: Tâm lý học ứng dụng cho quản lý và lãnh đạo</h1>
+<h2 id="1-linh-vuc-nay-thuc-su-la-gi">1. Lĩnh vực này thực sự là gì?</h2>
+<p>Tâm lý học ứng dụng cho quản lý và lãnh đạo là cách dùng hiểu biết có kiểm chứng về con người để cải thiện phán đoán, giao tiếp, thiết kế công việc, quan hệ quyền lực, động lực, học hỏi và văn hóa tổ chức. Nó không phải là nghệ thuật đọc vị, không phải bộ mẹo thuyết phục và không phải quyền chẩn đoán người khác.</p>
+<h2 id="2-cac-cau-hoi-cot-loi">2. Các câu hỏi cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Câu hỏi</th><th>Vì sao quan trọng</th><th>Nếu bỏ qua sẽ nhầm gì?</th></tr>
+<tr><td>Hành vi này đến từ cá nhân, quan hệ, công việc hay hệ thống?</td><td>Chọn đúng tầng can thiệp.</td><td>Quy lỗi cá nhân cho vấn đề thiết kế.</td></tr>
+<tr><td>Điều gì là dữ kiện, điều gì là diễn giải?</td><td>Giảm phán đoán vội.</td><td>Cảm giác chắc chắn bị nhầm thành sự thật.</td></tr>
+<tr><td>Quyền lực đang làm ai im lặng?</td><td>Bảo vệ sự thật và công bằng.</td><td>Tưởng đồng thuận trong khi chỉ có tự kiểm duyệt.</td></tr>
+<tr><td>Điều gì đang được thưởng thật?</td><td>Hiểu hành vi lặp lại.</td><td>Tin vào khẩu hiệu hơn cơ chế.</td></tr>
+<tr><td>Can thiệp này tăng tự chủ hay tăng phục tùng?</td><td>Giữ đạo đức lãnh đạo.</td><td>Dùng tâm lý học như thao túng.</td></tr>
+</table></div>
+<h2 id="3-nguyen-tac-phan-chia">3. Nguyên tắc phân chia</h2>
+<div class="table-wrap"><table>
+<tr><th>Nguyên tắc</th><th>Bản chất</th><th>Vì sao cần</th><th>Ví dụ</th></tr>
+<tr><td>Tầng cá nhân</td><td>Nhu cầu, cảm xúc, nhận thức, năng lực, giá trị.</td><td>Hiểu trải nghiệm bên trong và giới hạn cá nhân.</td><td>Một người mất động lực vì không thấy quyền tác động.</td></tr>
+<tr><td>Tầng quan hệ</td><td>Niềm tin, quyền lực, lịch sử, kỳ vọng.</td><td>Hành vi thay đổi theo người đối diện.</td><td>Nhân viên im lặng trước lãnh đạo hay nổi nóng.</td></tr>
+<tr><td>Tầng nhóm</td><td>Vai trò, chuẩn mực, phối hợp, an toàn tâm lý.</td><td>Nhóm tạo hành vi vượt quá từng cá nhân.</td><td>Không ai báo lỗi vì chuẩn mực tránh xấu hổ.</td></tr>
+<tr><td>Tầng hệ thống</td><td>Chỉ số, phần thưởng, quy trình, nguồn lực.</td><td>Nguyên nhân lặp lại thường nằm ở cấu trúc.</td><td>KPI thúc đẩy bán sai nhu cầu khách hàng.</td></tr>
+<tr><td>Tầng đạo đức</td><td>Ranh giới, tự chủ, công bằng, an toàn.</td><td>Tâm lý học chạm trực tiếp đến con người và quyền lực.</td><td>Không dùng nỗi sợ mất việc để ép đồng thuận.</td></tr>
+</table></div>
+<h2 id="4-ban-do-cac-tang-kien-thuc">4. Bản đồ các tầng kiến thức</h2>
+<div class="table-wrap"><table>
+<tr><th>Tầng</th><th>Câu hỏi cốt lõi</th><th>Module liên quan</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Nền tảng phán đoán</td><td>Ta biết gì và đang suy diễn gì?</td><td>01, 02, 04, 18</td><td>Ra quyết định bớt tùy tiện.</td></tr>
+<tr><td>Đời sống tâm lý cá nhân</td><td>Con người có động lực, cảm xúc, khác biệt ra sao?</td><td>03, 05, 06, 16</td><td>Quản lý năng lượng, năng lực và hỗ trợ.</td></tr>
+<tr><td>Tương tác lãnh đạo</td><td>Ta nói, nghe, ảnh hưởng và sửa quan hệ thế nào?</td><td>07, 09, 10, 14</td><td>Tăng rõ ràng và giảm phòng vệ.</td></tr>
+<tr><td>Đội nhóm</td><td>Nhóm học, tin tưởng, chịu trách nhiệm ra sao?</td><td>08, 11, 12</td><td>Tạo hiệu suất và học hỏi tập thể.</td></tr>
+<tr><td>Tổ chức</td><td>Văn hóa, thay đổi và hệ thống khuyến khích vận hành thế nào?</td><td>13, 15, 17, 18</td><td>Thiết kế điều kiện cho hành vi mong muốn.</td></tr>
+</table></div>
+<h2 id="5-ranh-gioi-an-toan">5. Ranh giới an toàn</h2>
+<div class="table-wrap"><table>
+<tr><th>Tình huống</th><th>Người quản lý nên làm</th><th>Không nên làm</th></tr>
+<tr><td>Dấu hiệu căng thẳng, burnout</td><td>Quan sát hành vi công việc, hỏi hỗ trợ, điều chỉnh tải việc, giới thiệu nguồn lực.</td><td>Chẩn đoán bệnh, ép chia sẻ riêng tư, đổ lỗi cá nhân.</td></tr>
+<tr><td>Cáo buộc quấy rối, phân biệt đối xử, bạo lực</td><td>Kích hoạt HR/pháp lý/chính sách an toàn.</td><td>Tự hòa giải khi có chênh lệch quyền lực hoặc rủi ro nghiêm trọng.</td></tr>
+<tr><td>Xung đột nhóm</td><td>Làm rõ vấn đề, lợi ích, tiêu chí và cam kết.</td><td>Ép im lặng để giữ hòa khí.</td></tr>
+<tr><td>Hiệu suất kém</td><td>Kiểm tra mục tiêu, năng lực, điều kiện và bằng chứng.</td><td>Kết luận tính cách mà không có dữ kiện.</td></tr>
+</table></div></section><section class="lesson" id="giao-trinh-tam-ly-hoc-lanh-dao"><div class="source-label">giao-trinh-tam-ly-hoc-lanh-dao.md</div><h1 id="giao-trinh-tam-ly-hoc-ung-dung-cho-quan-ly-va-lanh-dao">Giáo trình: Tâm lý học ứng dụng cho quản lý và lãnh đạo</h1>
+<h2 id="cau-truc-tong-the">Cấu trúc tổng thể</h2>
+<div class="table-wrap"><table>
+<tr><th>Phần</th><th>Module</th><th>Vai trò</th></tr>
+<tr><td>Nền tảng</td><td>01-04</td><td>Làm rõ phạm vi, dữ kiện, động lực và nhận thức.</td></tr>
+<tr><td>Cơ chế cá nhân</td><td>05-06</td><td>Hiểu cảm xúc, căng thẳng, khác biệt cá nhân, giá trị và năng lực.</td></tr>
+<tr><td>Tương tác lãnh đạo</td><td>07-10</td><td>Giao tiếp, niềm tin, quyền lực, xung đột và đạo đức ảnh hưởng.</td></tr>
+<tr><td>Hiệu suất và đội nhóm</td><td>11-12</td><td>Trách nhiệm, công bằng, chuẩn mực, vai trò và phối hợp.</td></tr>
+<tr><td>Tổ chức và phát triển</td><td>13-15</td><td>Thay đổi, coaching, ủy quyền và văn hóa.</td></tr>
+<tr><td>Rủi ro và phán đoán nâng cao</td><td>16-18</td><td>Sức khỏe tâm lý, khủng hoảng, sai phạm, đo lường và thực nghiệm.</td></tr>
+</table></div>
+<h2 id="danh-sach-module">Danh sách module</h2>
+<div class="table-wrap"><table>
+<tr><th>Module</th><th>Chủ đề</th><th>Vai trò học tập</th></tr>
+<tr><td>01</td><td><a href="Module-01-ban-chat-va-pham-vi.md">Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo</a></td><td>Hiểu con người trong tổ chức mà không biến tâm lý học thành nhãn dán hay mẹo thao túng.</td></tr>
+<tr><td>02</td><td><a href="Module-02-quan-sat-dien-giai-gia-thuyet.md">Quan sát, diễn giải, giả thuyết và kết luận</a></td><td>Nền tảng của mọi phán đoán tâm lý có trách nhiệm.</td></tr>
+<tr><td>03</td><td><a href="Module-03-dong-luc-nhu-cau-va-nang-luong.md">Động lực, nhu cầu và năng lượng làm việc</a></td><td>Vì sao con người bắt đầu, duy trì hoặc từ bỏ nỗ lực.</td></tr>
+<tr><td>04</td><td><a href="Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh.md">Nhận thức, thiên kiến và ra quyết định</a></td><td>Lãnh đạo dưới giới hạn chú ý, ký ức và suy luận.</td></tr>
+<tr><td>05</td><td><a href="Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh.md">Cảm xúc, căng thẳng và tự điều chỉnh</a></td><td>Cảm xúc là dữ liệu, không phải mệnh lệnh.</td></tr>
+<tr><td>06</td><td><a href="Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc.md">Khác biệt cá nhân, giá trị và năng lực</a></td><td>Hiểu sự khác nhau mà không đóng khung con người.</td></tr>
+<tr><td>07</td><td><a href="Module-07-giao-tiep-lang-nghe-phan-hoi.md">Giao tiếp, lắng nghe và phản hồi</a></td><td>Biến trao đổi thành hiểu biết chung và hành động rõ.</td></tr>
+<tr><td>08</td><td><a href="Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem.md">Niềm tin, an toàn tâm lý và trách nhiệm</a></td><td>Tạo môi trường nói thật, học nhanh và vẫn có tiêu chuẩn cao.</td></tr>
+<tr><td>09</td><td><a href="Module-09-quyen-luc-anh-huong-va-dao-duc.md">Quyền lực, ảnh hưởng và đạo đức</a></td><td>Dùng ảnh hưởng để tăng lựa chọn và trách nhiệm, không làm người khác mất tự chủ.</td></tr>
+<tr><td>10</td><td><a href="Module-10-xung-dot-dam-phan-va-sua-chua-quan-he.md">Xung đột, đàm phán và sửa chữa quan hệ</a></td><td>Chuyển va chạm thành thông tin, quyết định và cam kết mới.</td></tr>
+<tr><td>11</td><td><a href="Module-11-hieu-suat-trach-nhiem-va-cong-bang.md">Hiệu suất, trách nhiệm và công bằng</a></td><td>Quản trị kết quả mà không hạ thấp con người thành chỉ số.</td></tr>
+<tr><td>12</td><td><a href="Module-12-dong-luc-nhom-vai-tro-va-chuan-muc.md">Động lực nhóm, vai trò và chuẩn mực</a></td><td>Hiểu nhóm như một hệ thống hành vi, không chỉ là tập hợp cá nhân.</td></tr>
+<tr><td>13</td><td><a href="Module-13-thay-doi-hoc-hoi-va-thoi-quen.md">Thay đổi, học hỏi và thói quen</a></td><td>Vì sao hiểu đúng vẫn chưa đủ để hành vi thay đổi.</td></tr>
+<tr><td>14</td><td><a href="Module-14-coaching-phat-trien-va-uy-quyen.md">Coaching, phát triển con người và ủy quyền</a></td><td>Giúp người khác lớn lên mà không làm thay trách nhiệm của họ.</td></tr>
+<tr><td>15</td><td><a href="Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich.md">Văn hóa, biểu tượng và hệ thống khuyến khích</a></td><td>Văn hóa là điều hệ thống dạy con người làm khi không ai nhìn.</td></tr>
+<tr><td>16</td><td><a href="Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi.md">Sức khỏe tâm lý, burnout và ranh giới quản lý</a></td><td>Nhận biết rủi ro con người mà không đóng vai bác sĩ hay nhà trị liệu.</td></tr>
+<tr><td>17</td><td><a href="Module-17-khung-hoang-sai-pham-va-an-toan.md">Khủng hoảng, sai phạm và an toàn</a></td><td>Giữ con người, sự thật và trách nhiệm khi tình huống khó leo thang.</td></tr>
+<tr><td>18</td><td><a href="Module-18-bang-chung-do-luong-va-thuc-nghiem.md">Bằng chứng, đo lường và thực nghiệm trong lãnh đạo</a></td><td>Ra quyết định nhân sự bằng dữ kiện tốt hơn, không bằng vẻ khoa học.</td></tr>
+</table></div>
+<h2 id="lo-trinh-theo-muc-tieu">Lộ trình theo mục tiêu</h2>
+<div class="table-wrap"><table>
+<tr><th>Mục tiêu người học</th><th>Nên học module nào</th><th>Kết quả mong đợi</th></tr>
+<tr><td>Quản lý mới</td><td>01, 02, 03, 07, 11, 14</td><td>Biết giao việc, phản hồi, phân biệt dữ kiện và hỗ trợ động lực.</td></tr>
+<tr><td>Lãnh đạo đội đang xung đột</td><td>02, 05, 08, 09, 10, 12</td><td>Giảm phòng vệ, làm rõ lợi ích và khôi phục chuẩn mực phối hợp.</td></tr>
+<tr><td>Lãnh đạo chuyển đổi tổ chức</td><td>04, 08, 13, 15, 18</td><td>Thiết kế thay đổi có đo lường và giảm phản kháng.</td></tr>
+<tr><td>HRBP / People leader</td><td>06, 11, 14, 16, 17, 18</td><td>Xây khung phát triển, hiệu suất, ranh giới sức khỏe và quy trình an toàn.</td></tr>
+<tr><td>Founder / executive</td><td>01, 04, 09, 12, 15, 17, 18</td><td>Nhìn quyền lực, văn hóa, hệ thống khuyến khích và rủi ro quy mô.</td></tr>
+</table></div>
+<h2 id="cach-hoc-khuyen-nghi">Cách học khuyến nghị</h2>
+<ul>
+<li>Đọc module theo thứ tự nếu bạn muốn xây nền tảng chắc.</li>
+<li>Với mỗi module, chọn một tình huống thật trong công việc để làm công cụ thực hành.</li>
+<li>Sau mỗi 4 module, tổ chức một buổi phản tư: điều gì thay đổi trong cách bạn quan sát, hỏi, quyết định và thiết kế hệ thống?</li>
+<li>Không áp dụng kỹ thuật tâm lý vào người khác khi thiếu minh bạch, thiếu quyền từ chối hoặc có rủi ro sức khỏe/pháp lý.</li>
+</ul></section><section class="lesson" id="thuat-ngu-tam-ly-hoc-lanh-dao"><div class="source-label">thuat-ngu-tam-ly-hoc-lanh-dao.md</div><h1 id="bang-thuat-ngu-cot-loi">Bảng thuật ngữ cốt lõi</h1>
+<blockquote>Dùng thuật ngữ để quan sát rõ hơn, hỏi đúng hơn và hành động có trách nhiệm hơn. Không dùng thuật ngữ để gắn nhãn, chẩn đoán hoặc hạ thấp con người.</blockquote>
+<div class="table-wrap"><table>
+<tr><th>Thuật ngữ</th><th>Nhóm</th><th>Định nghĩa ngắn</th><th>Bản chất cần hiểu</th><th>Vì sao quan trọng</th><th>Dấu hiệu nhận biết</th><th>Câu hỏi ứng dụng</th></tr>
+<tr><td>An toàn tâm lý</td><td>Đội nhóm</td><td>Cảm nhận có thể nêu câu hỏi, sai sót, bất đồng mà không bị hạ nhục.</td><td>Giảm rủi ro xã hội để học hỏi thật.</td><td>Quan trọng khi công việc phức tạp và cần báo lỗi sớm.</td><td>Người dám nói tin xấu.</td><td>Điều gì khiến người ta im lặng ở đây?</td></tr>
+<tr><td>Burnout</td><td>Sức khỏe tâm lý</td><td>Cạn kiệt liên quan công việc, xa cách/hoài nghi và giảm hiệu quả cảm nhận.</td><td>Tín hiệu mất cân bằng dài hạn giữa yêu cầu và nguồn lực.</td><td>Ảnh hưởng an toàn, hiệu suất, giữ chân người.</td><td>Mệt kéo dài, hoài nghi, lỗi tăng.</td><td>Nguồn gây cạn kiệt nằm ở cá nhân hay thiết kế công việc?</td></tr>
+<tr><td>Công bằng quy trình</td><td>Hiệu suất</td><td>Cảm nhận quyết định được đưa ra bằng quy trình rõ và nhất quán.</td><td>Người chấp nhận kết quả khó hơn khi tin quy trình công bằng.</td><td>Quan trọng trong đánh giá, thăng chức, kỷ luật.</td><td>Câu hỏi về tiêu chí và quyền được lắng nghe.</td><td>Quy trình này có giải thích được không?</td></tr>
+<tr><td>Dữ kiện</td><td>Phán đoán</td><td>Điều có thể quan sát, kiểm tra hoặc đối chiếu.</td><td>Nền để tách sự thật khỏi câu chuyện.</td><td>Giảm kết luận vội về con người.</td><td>Có thời điểm, hành vi, tài liệu cụ thể.</td><td>Tôi biết điều gì, hay chỉ đang suy đoán?</td></tr>
+<tr><td>Giả thuyết</td><td>Phán đoán</td><td>Lời giải thích tạm thời cần kiểm chứng.</td><td>Giữ tư duy mở trước nhiều nguyên nhân.</td><td>Quan trọng trong xung đột và hiệu suất.</td><td>Có thể nêu cách xác nhận/bác bỏ.</td><td>Điều gì sẽ làm tôi đổi ý?</td></tr>
+<tr><td>Động lực nội tại</td><td>Động lực</td><td>Nỗ lực xuất phát từ ý nghĩa, hứng thú, tiêu chuẩn nghề nghiệp.</td><td>Con người duy trì tốt hơn khi thấy việc đáng làm.</td><td>Quan trọng với sáng tạo và học hỏi.</td><td>Tự chủ, tò mò, cam kết chất lượng.</td><td>Việc này có ý nghĩa thật với người làm không?</td></tr>
+<tr><td>Động lực ngoại tại</td><td>Động lực</td><td>Nỗ lực do thưởng, phạt, địa vị hoặc áp lực.</td><td>Có tác dụng nhưng dễ làm hẹp chú ý nếu dùng sai.</td><td>Quan trọng trong thiết kế KPI.</td><td>Chạy theo chỉ số, né phạt.</td><td>Phần thưởng đang dạy hành vi nào?</td></tr>
+<tr><td>Thiên kiến xác nhận</td><td>Nhận thức</td><td>Xu hướng tìm thông tin ủng hộ niềm tin sẵn có.</td><td>Não bảo vệ câu chuyện quen thuộc.</td><td>Gây sai lầm tuyển dụng, chiến lược, đánh giá.</td><td>Chỉ hỏi người đồng ý.</td><td>Tôi đã tìm bằng chứng ngược chưa?</td></tr>
+<tr><td>Hiệu ứng hào quang</td><td>Nhận thức</td><td>Một ấn tượng lan sang đánh giá nhiều mặt.</td><td>Cảm giác chung thay thế tiêu chí cụ thể.</td><td>Dễ gặp trong tuyển dụng và đánh giá.</td><td>Người tự tin được chấm cao toàn diện.</td><td>Tiêu chí nào độc lập với ấn tượng chung?</td></tr>
+<tr><td>Tự điều chỉnh</td><td>Cảm xúc</td><td>Nhận biết trạng thái bên trong và chọn phản ứng phù hợp.</td><td>Tạo khoảng cách giữa xung lực và hành động.</td><td>Quan trọng khi quyền lực cao.</td><td>Tạm dừng trước khi phản ứng.</td><td>Phản ứng này phục vụ mục tiêu nào?</td></tr>
+<tr><td>Niềm tin</td><td>Quan hệ</td><td>Kỳ vọng người khác đủ năng lực, thiện chí và nhất quán.</td><td>Cho phép chấp nhận rủi ro phối hợp.</td><td>Nền của ủy quyền và phản hồi.</td><td>Chia sẻ vấn đề sớm.</td><td>Niềm tin đang thiếu ở năng lực, thiện chí hay nhất quán?</td></tr>
+<tr><td>Quyền lực</td><td>Đạo đức</td><td>Khả năng ảnh hưởng đến lựa chọn và rủi ro của người khác.</td><td>Làm tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Cần trong quyết định nhân sự và văn hóa.</td><td>Người dưới quyền tự kiểm duyệt.</td><td>Ai chịu chi phí nếu quyết định này sai?</td></tr>
+<tr><td>Thao túng</td><td>Đạo đức</td><td>Ảnh hưởng bằng cách che giấu mục đích hoặc giảm tự chủ.</td><td>Dùng hiểu biết tâm lý để khai thác người khác.</td><td>Rủi ro lớn trong lãnh đạo.</td><td>Thông tin một chiều, áp lực mơ hồ.</td><td>Người kia có quyền hiểu và từ chối không?</td></tr>
+<tr><td>Vai trò</td><td>Đội nhóm</td><td>Kỳ vọng về trách nhiệm và quyền quyết định.</td><td>Giảm khoảng trống và chồng chéo.</td><td>Quan trọng khi phối hợp phức tạp.</td><td>Việc rơi giữa các bộ phận.</td><td>Ai có quyền quyết định cuối cùng?</td></tr>
+<tr><td>Chuẩn mực</td><td>Đội nhóm</td><td>Luật không viết ra về hành vi được phép hoặc bị phạt.</td><td>Dạy con người cách tồn tại trong nhóm.</td><td>Là hạt nhân của văn hóa.</td><td>Mọi người biết điều không nên nói.</td><td>Hành vi nào đang được thưởng thật?</td></tr>
+<tr><td>Ủy quyền</td><td>Phát triển</td><td>Chuyển trách nhiệm kèm quyền, nguồn lực, tiêu chuẩn và kiểm tra.</td><td>Tăng năng lực hệ thống thay vì tạo nút cổ chai.</td><td>Quan trọng với mở rộng tổ chức.</td><td>Nhân viên tự quyết trong ranh giới.</td><td>Tôi đã giao quyền hay chỉ giao việc?</td></tr>
+<tr><td>Coaching</td><td>Phát triển</td><td>Hỏi và phản chiếu để người khác tự xây năng lực quyết định.</td><td>Chuyển tư duy về cho người học.</td><td>Quan trọng với lãnh đạo phát triển người.</td><td>Người được hỏi tự tạo phương án.</td><td>Câu hỏi nào giúp họ nhìn rõ hơn?</td></tr>
+<tr><td>Văn hóa</td><td>Tổ chức</td><td>Chuẩn mực và giả định định hình hành vi khi không ai nhìn.</td><td>Hệ thống dạy điều gì là sống còn.</td><td>Quyết định khả năng thực thi chiến lược.</td><td>Khác biệt giữa khẩu hiệu và hành vi.</td><td>Khủng hoảng này làm lộ giá trị gì?</td></tr>
+<tr><td>Bằng chứng</td><td>Đo lường</td><td>Thông tin đủ liên quan và tin cậy cho quyết định.</td><td>Giảm tùy tiện nhưng phải phù hợp mức rủi ro.</td><td>Quan trọng với chính sách nhân sự.</td><td>Dữ liệu, quan sát, phản hồi nhất quán.</td><td>Bằng chứng này đủ cho loại quyết định nào?</td></tr>
+<tr><td>Thử nghiệm an toàn</td><td>Đo lường</td><td>Can thiệp nhỏ có giả thuyết, chỉ số và tiêu chí dừng.</td><td>Học nhanh mà không đặt cược quá lớn.</td><td>Hữu ích khi đổi quy trình, văn hóa.</td><td>Pilot có phạm vi và thời hạn rõ.</td><td>Tôi có thể học điều này ở quy mô nhỏ hơn không?</td></tr>
+</table></div></section><section class="lesson" id="Module-01-ban-chat-va-pham-vi"><div class="source-label">Module-01-ban-chat-va-pham-vi.md</div><h1 id="module-01-ban-chat-va-pham-vi-cua-tam-ly-hoc-ung-dung-cho-lanh-dao">Module 01: Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo</h1>
+<p><strong>Hiểu con người trong tổ chức mà không biến tâm lý học thành nhãn dán hay mẹo thao túng.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Tâm lý học lãnh đạo không phải là đọc vị người khác; đó là năng lực thiết kế điều kiện để con người suy nghĩ, cảm nhận, phối hợp và chịu trách nhiệm tốt hơn.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Con người trong tổ chức vừa là cá nhân có nhu cầu, cảm xúc, thói quen, giới hạn nhận thức, vừa là thành viên của một hệ thống quyền lực, chuẩn mực, vai trò và phần thưởng.</p>
+<p><strong>Cơ chế:</strong> Hành vi xuất hiện từ tương tác giữa con người, nhiệm vụ, môi trường và lịch sử quan hệ. Lãnh đạo hiệu quả không chỉ sửa thái độ cá nhân mà phải nhìn đồng thời động cơ, năng lực, bối cảnh, ràng buộc và tín hiệu hệ thống.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Tâm lý học ứng dụng</td><td>Dùng kiến thức có bằng chứng về hành vi, nhận thức, cảm xúc và quan hệ để cải thiện quyết định, giao tiếp và thiết kế tổ chức.</td></tr>
+<tr><td>Lãnh đạo</td><td>Tạo hướng đi, điều kiện và chuẩn mực để người khác phối hợp hành động trong bất định.</td></tr>
+<tr><td>Bối cảnh</td><td>Tập hợp áp lực, nguồn lực, luật chơi và lịch sử khiến cùng một người có thể hành xử khác nhau ở hai môi trường.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Gắn nhãn tính cách để kết luận con người</td><td>Nhãn làm người quản lý thấy mình đã hiểu, nhưng thực ra bỏ qua bối cảnh và bằng chứng.</td></tr>
+<tr><td>Dùng tâm lý học để ép phục tùng</td><td>Ảnh hưởng thiếu đạo đức có thể tạo vâng lời ngắn hạn nhưng phá tin cậy dài hạn.</td></tr>
+<tr><td>Tìm một công thức đúng cho mọi người</td><td>Con người khác nhau theo nhu cầu, năng lực, văn hóa, quyền lực và giai đoạn phát triển.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Một vấn đề nhân sự lặp lại ở nhiều cá nhân khác nhau.</li>
+<li>Nhóm nói một đằng trong họp nhưng làm một nẻo sau họp.</li>
+<li>Lãnh đạo giải thích bằng tính cách trước khi kiểm tra dữ kiện, vai trò và hệ thống thưởng phạt.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Một nhân viên im lặng trong họp không nhất thiết là thiếu chủ động. Có thể người đó từng bị ngắt lời, chưa rõ mục tiêu, thiếu dữ kiện, hoặc nhóm có chuẩn mực trừng phạt sai lầm.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một lãnh đạo học vài mô hình tính cách rồi chia đội thành các loại người cố định. Đây là dùng thuật ngữ để thay thế quan sát.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Nhật ký bốn tầng: ghi một tình huống, tách dữ kiện quan sát, diễn giải tâm lý, yếu tố hệ thống và hành động kiểm chứng nhỏ nhất.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Tâm lý học lãnh đạo không phải là đọc vị người khác; đó là năng lực thiết kế điều kiện để con người suy nghĩ, cảm nhận, phối hợp và chịu trách nhiệm tốt hơn.</p></section><section class="lesson" id="Module-02-quan-sat-dien-giai-gia-thuyet"><div class="source-label">Module-02-quan-sat-dien-giai-gia-thuyet.md</div><h1 id="module-02-quan-sat-dien-giai-gia-thuyet-va-ket-luan">Module 02: Quan sát, diễn giải, giả thuyết và kết luận</h1>
+<p><strong>Nền tảng của mọi phán đoán tâm lý có trách nhiệm.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Lãnh đạo giỏi không kết luận nhanh hơn; họ tách dữ kiện khỏi diễn giải tốt hơn.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Một sự kiện trong tổ chức luôn có nhiều lớp: điều quan sát được, ý nghĩa ta gán cho nó, giả thuyết về nguyên nhân và quyết định hành động.</p>
+<p><strong>Cơ chế:</strong> Não người tiết kiệm năng lượng bằng cách hoàn thiện câu chuyện từ dữ kiện thiếu. Cơ chế này hữu ích cho phản ứng nhanh nhưng nguy hiểm khi đánh giá con người, xử lý xung đột hoặc ra quyết định nhân sự.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Dữ kiện</td><td>Điều có thể kiểm tra: lời nói, hành vi, thời điểm, kết quả, tài liệu.</td></tr>
+<tr><td>Diễn giải</td><td>Ý nghĩa người quan sát gán cho dữ kiện.</td></tr>
+<tr><td>Giả thuyết</td><td>Một lời giải thích tạm thời cần được kiểm chứng hoặc bác bỏ.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Coi cảm giác chắc chắn là bằng chứng</td><td>Cảm giác mạnh có thể đến từ ký ức, định kiến hoặc áp lực chứ không bảo đảm đúng.</td></tr>
+<tr><td>Hỏi câu dẫn dắt</td><td>Câu hỏi đã chứa kết luận khiến người khác phòng thủ.</td></tr>
+<tr><td>Nhảy từ một hành vi sang phẩm chất con người</td><td>Một lần trễ hạn không đủ để kết luận thiếu trách nhiệm.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Câu nói bắt đầu bằng “rõ ràng là”, “chắc chắn nó cố tình”, “ai cũng biết”.</li>
+<li>Họp đánh giá nhiều tính từ nhưng ít dữ kiện.</li>
+<li>Quyết định nhân sự dựa trên ấn tượng chưa được kiểm chứng.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Dữ kiện: ba lần báo cáo gửi muộn. Diễn giải: người đó thiếu ưu tiên. Giả thuyết khác: phụ thuộc dữ liệu từ đội khác, phạm vi thay đổi, hoặc người quản lý giao việc chưa rõ.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>“Tôi cảm thấy bạn không cam kết” là diễn giải. Cách nói tốt hơn: “Trong ba tuần gần đây, báo cáo gửi sau hạn hai ngày. Tôi muốn hiểu nguyên nhân và thống nhất cách xử lý.”</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Mẫu O-I-H-A: Observation, Interpretation, Hypothesis, Action. Viết ra bốn dòng trước mọi cuộc trao đổi khó.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Lãnh đạo giỏi không kết luận nhanh hơn; họ tách dữ kiện khỏi diễn giải tốt hơn.</p></section><section class="lesson" id="Module-03-dong-luc-nhu-cau-va-nang-luong"><div class="source-label">Module-03-dong-luc-nhu-cau-va-nang-luong.md</div><h1 id="module-03-dong-luc-nhu-cau-va-nang-luong-lam-viec">Module 03: Động lực, nhu cầu và năng lượng làm việc</h1>
+<p><strong>Vì sao con người bắt đầu, duy trì hoặc từ bỏ nỗ lực.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Động lực không chỉ là muốn; nó là quan hệ giữa ý nghĩa, năng lực, phần thưởng, chi phí và cảm giác có quyền tác động.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Con người hành động khi họ thấy mục tiêu đáng làm, tin mình có thể tác động, hiểu tiêu chuẩn thành công và có đủ năng lượng tâm lý để duy trì nỗ lực.</p>
+<p><strong>Cơ chế:</strong> Động lực suy giảm khi mục tiêu mơ hồ, nỗ lực không liên quan đến kết quả, phần thưởng làm lệch giá trị, hoặc chi phí cảm xúc vượt quá nguồn lực hồi phục.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Động lực nội tại</td><td>Làm vì ý nghĩa, hứng thú, tiêu chuẩn nghề nghiệp hoặc cảm giác làm chủ.</td></tr>
+<tr><td>Động lực ngoại tại</td><td>Làm vì phần thưởng, tránh phạt, địa vị hoặc áp lực bên ngoài.</td></tr>
+<tr><td>Tự hiệu quả</td><td>Niềm tin thực tế rằng mình có thể tạo ra kết quả bằng hành động phù hợp.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Cho rằng thiếu động lực là thiếu đạo đức</td><td>Nhiều khi vấn đề nằm ở mục tiêu, thiết kế công việc hoặc năng lực.</td></tr>
+<tr><td>Chỉ tăng thưởng</td><td>Thưởng có thể hữu ích nhưng cũng có thể thu hẹp chú ý và làm giảm học hỏi nếu thiết kế kém.</td></tr>
+<tr><td>Truyền cảm hứng thay cho tháo gỡ cản trở</td><td>Thông điệp tích cực không bù được quy trình rối và quyền quyết định mơ hồ.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Người làm việc chỉ khi bị nhắc.</li>
+<li>Đội có nhiều khẩu hiệu nhưng ít tiến độ thật.</li>
+<li>Nhân sự giỏi mất năng lượng dù vẫn có năng lực.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Một đội bán hàng không đạt mục tiêu không chỉ vì thiếu cố gắng. Có thể họ không tin chỉ số công bằng, không có phản hồi đủ nhanh, hoặc sản phẩm không còn phù hợp thị trường.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Tăng KPI mà không tăng quyền quyết định, dữ liệu và hỗ trợ thường chỉ tạo áp lực, không tạo động lực bền.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Chẩn đoán động lực bằng năm câu: mục tiêu có rõ không, người làm có năng lực không, có quyền tác động không, phần thưởng có khớp giá trị không, chi phí năng lượng có được quản trị không.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Động lực không chỉ là muốn; nó là quan hệ giữa ý nghĩa, năng lực, phần thưởng, chi phí và cảm giác có quyền tác động.</p></section><section class="lesson" id="Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh"><div class="source-label">Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh.md</div><h1 id="module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh">Module 04: Nhận thức, thiên kiến và ra quyết định</h1>
+<p><strong>Lãnh đạo dưới giới hạn chú ý, ký ức và suy luận.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Thiên kiến không phải lỗi đạo đức cá nhân; đó là giới hạn hệ thống của bộ não cần được thiết kế đối trọng.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Não người dùng lối tắt để quyết định nhanh trong điều kiện thiếu thông tin. Lối tắt giúp tiết kiệm năng lượng nhưng có thể bóp méo đánh giá rủi ro, con người và cơ hội.</p>
+<p><strong>Cơ chế:</strong> Chú ý chọn lọc, ký ức tái tạo, cảm xúc gắn nhãn giá trị và áp lực xã hội cùng tạo nên cảm giác “đúng” trước khi ta phân tích đầy đủ.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Thiên kiến xác nhận</td><td>Tìm và nhớ thông tin ủng hộ niềm tin sẵn có.</td></tr>
+<tr><td>Hiệu ứng hào quang</td><td>Một ấn tượng tốt hoặc xấu lan sang đánh giá nhiều mặt khác.</td></tr>
+<tr><td>Tư duy hệ thống</td><td>Nhìn quyết định như một phần của chuỗi nguyên nhân, phản hồi và hệ quả phụ.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Học danh sách bias để chê người khác</td><td>Mục tiêu là cải thiện quy trình quyết định, không chứng minh ai kém lý trí.</td></tr>
+<tr><td>Tin rằng biết bias thì hết bias</td><td>Nhận thức không đủ; cần thiết kế phản biện, dữ liệu và pre-mortem.</td></tr>
+<tr><td>Quá tin dữ liệu quá khứ</td><td>Dữ liệu cũng phản ánh cách tổ chức từng đo, từng thưởng và từng bỏ qua.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Cuộc họp chỉ tìm lý do bảo vệ quyết định đã chọn.</li>
+<li>Người có phong thái tự tin được đánh giá năng lực cao hơn dữ kiện cho phép.</li>
+<li>Rủi ro hiếm nhưng nghiêm trọng bị bỏ qua vì chưa từng xảy ra gần đây.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Khi tuyển dụng, ứng viên nói giống lãnh đạo có thể tạo cảm giác phù hợp văn hóa. Cần kiểm tra năng lực bằng tiêu chí hành vi và bài tập công việc.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một bảng điểm phức tạp không tự động khách quan nếu tiêu chí mơ hồ hoặc người chấm biết ứng viên mình thích.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Dùng pre-mortem: giả sử quyết định thất bại sau sáu tháng, liệt kê năm nguyên nhân có thể, rồi thiết kế tín hiệu cảnh báo sớm.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Thiên kiến không phải lỗi đạo đức cá nhân; đó là giới hạn hệ thống của bộ não cần được thiết kế đối trọng.</p></section><section class="lesson" id="Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh"><div class="source-label">Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh.md</div><h1 id="module-05-cam-xuc-cang-thang-va-tu-dieu-chinh">Module 05: Cảm xúc, căng thẳng và tự điều chỉnh</h1>
+<p><strong>Cảm xúc là dữ liệu, không phải mệnh lệnh.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Cảm xúc cần được lắng nghe như tín hiệu và được quản trị như năng lượng hành động.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Cảm xúc giúp con người định giá tình huống, ưu tiên chú ý và chuẩn bị hành động. Trong lãnh đạo, vấn đề không phải là có cảm xúc hay không, mà là cảm xúc đang được đọc, diễn giải và biểu hiện ra sao.</p>
+<p><strong>Cơ chế:</strong> Căng thẳng kích hoạt cơ thể để đối phó đe dọa. Khi kéo dài hoặc thiếu kiểm soát, nó thu hẹp chú ý, tăng phòng vệ, giảm sáng tạo và làm xấu chất lượng quan hệ.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Tự điều chỉnh</td><td>Khả năng nhận biết trạng thái bên trong, tạm dừng, chọn phản ứng phù hợp với giá trị và mục tiêu.</td></tr>
+<tr><td>Căng thẳng cấp tính</td><td>Phản ứng ngắn hạn trước áp lực rõ.</td></tr>
+<tr><td>Căng thẳng mạn tính</td><td>Tải kéo dài khiến cơ thể và tâm trí khó hồi phục.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Đòi nhân viên luôn tích cực</td><td>Phủ nhận cảm xúc làm mất dữ liệu về rủi ro và bất công.</td></tr>
+<tr><td>Xem giận dữ là phong cách lãnh đạo mạnh</td><td>Sợ hãi có thể tạo tuân thủ nhưng giảm học hỏi và báo cáo sớm.</td></tr>
+<tr><td>Biến quản trị cảm xúc thành tự trách</td><td>Nhiều nguồn căng thẳng là vấn đề thiết kế công việc, không chỉ kỹ năng cá nhân.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Đội tránh báo tin xấu.</li>
+<li>Lãnh đạo phản ứng nhanh, gay gắt rồi phải sửa sau.</li>
+<li>Năng lượng nhóm xuống thấp dù khối lượng không đổi.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Trước khi phản hồi gay gắt, lãnh đạo tạm dừng 90 giây, gọi tên cảm xúc, xác định mục tiêu cuộc nói chuyện và chọn câu hỏi mở đầu.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Im lặng để tỏ ra bình tĩnh nhưng tích tụ khó chịu không phải tự điều chỉnh; đó có thể là né tránh.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Quy trình STOP: Stop, Take a breath, Observe dữ kiện-cảm xúc-xung lực, Proceed bằng hành động nhỏ phù hợp mục tiêu.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Cảm xúc cần được lắng nghe như tín hiệu và được quản trị như năng lượng hành động.</p></section><section class="lesson" id="Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc"><div class="source-label">Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc.md</div><h1 id="module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc">Module 06: Khác biệt cá nhân, giá trị và năng lực</h1>
+<p><strong>Hiểu sự khác nhau mà không đóng khung con người.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Khác biệt cá nhân là đầu vào để thiết kế phối hợp, không phải lý do để cố định số phận nghề nghiệp.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Mỗi người khác nhau về kinh nghiệm, động cơ, giá trị, kỹ năng, nhịp năng lượng, cách xử lý thông tin và mức an toàn họ cảm nhận trong môi trường.</p>
+<p><strong>Cơ chế:</strong> Hành vi ổn định phần nào vì thói quen và giá trị, nhưng vẫn thay đổi theo vai trò, phần thưởng, quan hệ, năng lực mới và mức đe dọa trong bối cảnh.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Giá trị</td><td>Điều một người xem là quan trọng khi phải đánh đổi.</td></tr>
+<tr><td>Năng lực</td><td>Khả năng tạo kết quả trong một bối cảnh và tiêu chuẩn cụ thể.</td></tr>
+<tr><td>Sở trường</td><td>Mẫu hoạt động mà người đó học nhanh, tạo giá trị và thường có năng lượng hơn.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Dùng trắc nghiệm như chân lý</td><td>Công cụ tự báo cáo có giới hạn và không thay thế quan sát hiệu suất.</td></tr>
+<tr><td>Lẫn tính cách với năng lực</td><td>Một người hướng nội vẫn có thể lãnh đạo tốt nếu có kỹ năng và hệ thống phù hợp.</td></tr>
+<tr><td>Coi phù hợp văn hóa là giống nhau</td><td>Văn hóa mạnh không cần đồng dạng; nó cần chuẩn mực rõ và đa dạng hữu ích.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Một người giỏi ở vai trò cũ nhưng chật vật ở vai trò mới.</li>
+<li>Xung đột giá trị bị diễn giải thành thái độ cá nhân.</li>
+<li>Đội thiếu đa dạng cách nghĩ nên ra quyết định nhanh nhưng nông.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Một chuyên gia thăng chức quản lý có thể thất bại không vì thiếu tiềm năng, mà vì năng lực mới đòi hỏi ủy quyền, phản hồi và quản trị xung đột.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>“Bạn là kiểu người không hợp lãnh đạo” là kết luận đóng. Cách tốt hơn là chỉ ra hành vi, năng lực cần xây và điều kiện hỗ trợ.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Bản đồ cá nhân hóa công việc: liệt kê sở trường, yếu tố hao năng lượng, giá trị không thể đánh đổi, kỹ năng cần học và cách quản lý phù hợp.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Khác biệt cá nhân là đầu vào để thiết kế phối hợp, không phải lý do để cố định số phận nghề nghiệp.</p></section><section class="lesson" id="Module-07-giao-tiep-lang-nghe-phan-hoi"><div class="source-label">Module-07-giao-tiep-lang-nghe-phan-hoi.md</div><h1 id="module-07-giao-tiep-lang-nghe-va-phan-hoi">Module 07: Giao tiếp, lắng nghe và phản hồi</h1>
+<p><strong>Biến trao đổi thành hiểu biết chung và hành động rõ.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Giao tiếp lãnh đạo tốt là giảm mơ hồ, giảm phòng vệ và tăng trách nhiệm hành động.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Giao tiếp trong tổ chức không chỉ truyền thông tin; nó định hình quan hệ quyền lực, kỳ vọng, cảm xúc an toàn và khả năng phối hợp.</p>
+<p><strong>Cơ chế:</strong> Người nghe giải mã thông điệp qua nội dung, giọng điệu, lịch sử quan hệ, rủi ro cá nhân và điều họ nghĩ lãnh đạo thật sự thưởng phạt.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Lắng nghe chủ động</td><td>Theo dõi nội dung, cảm xúc và nhu cầu phía sau lời nói rồi phản hồi để kiểm tra hiểu đúng.</td></tr>
+<tr><td>Phản hồi hành vi</td><td>Nói về hành vi quan sát được, tác động và kỳ vọng tiếp theo.</td></tr>
+<tr><td>Kỳ vọng rõ</td><td>Mô tả kết quả, tiêu chuẩn, ranh giới, quyền quyết định và thời điểm kiểm tra.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Dùng feedback để xả bực</td><td>Phản hồi cần phục vụ học hỏi và trách nhiệm, không phải giải tỏa cảm xúc của người quản lý.</td></tr>
+<tr><td>Mềm mỏng đến mức mơ hồ</td><td>Tránh khó chịu trước mắt có thể làm người nhận không hiểu điều cần thay đổi.</td></tr>
+<tr><td>Thẳng thắn không có an toàn</td><td>Nói thật không đồng nghĩa nói thiếu tôn trọng hoặc thiếu bối cảnh.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Sau cuộc họp, mỗi người hiểu một việc khác nhau.</li>
+<li>Feedback đến quá muộn, chỉ xuất hiện khi đánh giá cuối kỳ.</li>
+<li>Người nhận phản hồi phòng thủ vì nghe toàn tính cách, ít dữ kiện.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Cấu trúc SBI: Situation, Behavior, Impact. “Trong buổi review hôm qua, khi bạn ngắt lời khách ba lần, khách dừng chia sẻ chi tiết. Lần tới tôi muốn bạn ghi lại câu hỏi và hỏi sau khi khách nói xong.”</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>“Bạn thiếu chuyên nghiệp” không đủ giúp thay đổi vì không chỉ ra hành vi và tiêu chuẩn.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Chuẩn bị một cuộc phản hồi bằng ba cột: dữ kiện, tác động, yêu cầu hành vi tiếp theo.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Giao tiếp lãnh đạo tốt là giảm mơ hồ, giảm phòng vệ và tăng trách nhiệm hành động.</p></section><section class="lesson" id="Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem"><div class="source-label">Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem.md</div><h1 id="module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem">Module 08: Niềm tin, an toàn tâm lý và trách nhiệm</h1>
+<p><strong>Tạo môi trường nói thật, học nhanh và vẫn có tiêu chuẩn cao.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> An toàn tâm lý không phải dễ dãi; đó là điều kiện để đối mặt sự thật mà không sợ bị hạ nhục.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Niềm tin là kỳ vọng rằng người khác có năng lực, thiện chí và nhất quán đủ để mình chấp nhận rủi ro quan hệ. An toàn tâm lý là cảm nhận trong nhóm rằng có thể nêu câu hỏi, sai sót và ý kiến khác mà không bị trừng phạt về mặt cá nhân.</p>
+<p><strong>Cơ chế:</strong> Khi rủi ro xã hội cao, con người che giấu lỗi, tránh hỏi, im lặng trước nguy cơ. Khi tiêu chuẩn cao đi cùng an toàn, nhóm báo lỗi sớm, học nhanh và chịu trách nhiệm tốt hơn.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Niềm tin năng lực</td><td>Tin rằng người khác có khả năng làm phần việc của họ.</td></tr>
+<tr><td>Niềm tin thiện chí</td><td>Tin rằng người khác không lợi dụng điểm yếu của mình.</td></tr>
+<tr><td>Trách nhiệm</td><td>Sự rõ ràng về cam kết, tiêu chuẩn và hệ quả học tập hoặc kỷ luật.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Nhầm an toàn tâm lý với thoải mái</td><td>Học hỏi thật thường có căng thẳng tích cực.</td></tr>
+<tr><td>Dùng tin cậy để né kiểm tra</td><td>Niềm tin trưởng thành vẫn cần minh bạch và cơ chế phản hồi.</td></tr>
+<tr><td>Đòi nhân viên nói thật khi lãnh đạo phạt người báo tin xấu</td><td>Hệ thống thưởng phạt thực tế mạnh hơn khẩu hiệu.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Không ai nêu rủi ro cho đến khi dự án thất bại.</li>
+<li>Người mới mất nhiều tháng mới dám đặt câu hỏi.</li>
+<li>Lãnh đạo nói muốn phản biện nhưng cắt lời người bất đồng.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Sau lỗi vận hành, lãnh đạo bắt đầu bằng “Điều gì trong hệ thống cho phép lỗi này xảy ra?” trước khi bàn trách nhiệm cá nhân.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một nhóm cười đùa thân thiện nhưng không ai dám nói sản phẩm có lỗi nghiêm trọng không phải nhóm an toàn tâm lý.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Nghi thức after-action review: mục tiêu là gì, điều gì xảy ra, điều gì giải thích chênh lệch, bài học, cam kết thay đổi.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>An toàn tâm lý không phải dễ dãi; đó là điều kiện để đối mặt sự thật mà không sợ bị hạ nhục.</p></section><section class="lesson" id="Module-09-quyen-luc-anh-huong-va-dao-duc"><div class="source-label">Module-09-quyen-luc-anh-huong-va-dao-duc.md</div><h1 id="module-09-quyen-luc-anh-huong-va-dao-duc">Module 09: Quyền lực, ảnh hưởng và đạo đức</h1>
+<p><strong>Dùng ảnh hưởng để tăng lựa chọn và trách nhiệm, không làm người khác mất tự chủ.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Quyền lực làm mọi tín hiệu của lãnh đạo to hơn; vì vậy đạo đức không phải phần phụ mà là điều kiện vận hành.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Quyền lực là khả năng ảnh hưởng đến lựa chọn, nguồn lực, rủi ro và tương lai của người khác. Trong tổ chức, quyền lực luôn tồn tại dù lãnh đạo có nhận ra hay không.</p>
+<p><strong>Cơ chế:</strong> Người có ít quyền lực thường đọc tín hiệu của lãnh đạo kỹ hơn, tự kiểm duyệt nhiều hơn và chịu chi phí cao hơn khi bất đồng. Điều này làm ảnh hưởng của lãnh đạo dễ vượt quá ý định ban đầu.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Ảnh hưởng</td><td>Tác động đến suy nghĩ hoặc hành vi của người khác thông qua thông tin, quan hệ, phần thưởng, chuẩn mực hoặc cảm xúc.</td></tr>
+<tr><td>Thao túng</td><td>Tác động làm giảm tự chủ bằng cách che giấu mục đích, bóp méo thông tin hoặc khai thác điểm yếu.</td></tr>
+<tr><td>Đồng thuận có hiểu biết</td><td>Người tham gia hiểu mục tiêu, rủi ro, quyền từ chối và hệ quả chính.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Gọi ép buộc là truyền cảm hứng</td><td>Khi có lệ thuộc nghề nghiệp, lời mời của lãnh đạo có thể được hiểu như mệnh lệnh.</td></tr>
+<tr><td>Dùng tâm lý học để khai thác nỗi sợ</td><td>Chiến thuật sợ hãi tạo hành động ngắn hạn nhưng phá niềm tin.</td></tr>
+<tr><td>Tự cho mình ngoại lệ vì mục tiêu tốt</td><td>Mục tiêu tốt không miễn trừ trách nhiệm về phương tiện.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Nhân viên đồng ý ngay nhưng sau đó né thực hiện.</li>
+<li>Người yếu thế không dám phản đối dù quyết định ảnh hưởng trực tiếp đến họ.</li>
+<li>Lãnh đạo dùng thông tin riêng tư để gây áp lực.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Khi xin đội làm thêm cuối tuần, lãnh đạo nói rõ lý do, lựa chọn thay thế, quyền từ chối, bù đắp và cách ngăn tình huống lặp lại.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>“Chúng ta là gia đình nên hãy hy sinh” có thể che mờ hợp đồng công việc, quyền nghỉ ngơi và trách nhiệm thiết kế nguồn lực.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Bộ lọc đạo đức: mục tiêu có minh bạch không, người chịu ảnh hưởng có quyền từ chối không, thông tin có cân bằng không, lợi ích và chi phí phân bổ có công bằng không.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Quyền lực làm mọi tín hiệu của lãnh đạo to hơn; vì vậy đạo đức không phải phần phụ mà là điều kiện vận hành.</p></section><section class="lesson" id="Module-10-xung-dot-dam-phan-va-sua-chua-quan-he"><div class="source-label">Module-10-xung-dot-dam-phan-va-sua-chua-quan-he.md</div><h1 id="module-10-xung-dot-dam-phan-va-sua-chua-quan-he">Module 10: Xung đột, đàm phán và sửa chữa quan hệ</h1>
+<p><strong>Chuyển va chạm thành thông tin, quyết định và cam kết mới.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Xung đột không được quản trị sẽ thành chính trị ngầm; xung đột được quản trị tốt sẽ thành học hỏi.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Xung đột xuất hiện khi mục tiêu, nguồn lực, giá trị, vai trò hoặc cách hiểu khác nhau. Nó không tự tốt hay xấu; kết quả phụ thuộc vào cách nhóm xử lý khác biệt.</p>
+<p><strong>Cơ chế:</strong> Khi cảm thấy bị đe dọa, con người chuyển sang phòng vệ: tấn công, né tránh, đóng băng hoặc nhượng bộ giả. Lãnh đạo cần hạ đe dọa quan hệ và làm rõ vấn đề thực.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Vị thế</td><td>Điều một bên nói họ muốn.</td></tr>
+<tr><td>Lợi ích</td><td>Nhu cầu, rủi ro hoặc mục tiêu phía sau vị thế.</td></tr>
+<tr><td>Sửa chữa quan hệ</td><td>Hành động thừa nhận tác động, nhận trách nhiệm phù hợp và thiết lập cách phối hợp mới.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Ép hòa thuận</td><td>Tránh xung đột có thể giữ bề mặt yên ổn nhưng tích tụ bất công.</td></tr>
+<tr><td>Coi mọi xung đột là vấn đề giao tiếp</td><td>Nhiều xung đột đến từ thiết kế quyền quyết định hoặc nguồn lực.</td></tr>
+<tr><td>Đàm phán chỉ để thắng</td><td>Thắng ngắn hạn có thể phá hợp tác dài hạn.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Vấn đề được nói ở hành lang thay vì trong phòng họp.</li>
+<li>Các bên tranh luận giải pháp trước khi đồng ý vấn đề.</li>
+<li>Người quản lý phải làm trọng tài lặp lại cho cùng một mâu thuẫn.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Hai đội tranh quyền ưu tiên roadmap. Lãnh đạo tách vị thế khỏi lợi ích: doanh thu quý này, nợ kỹ thuật, rủi ro khách hàng và năng lực triển khai.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một cuộc họp “nói cho xong” không có tiêu chí quyết định, người sở hữu việc tiếp theo và thời điểm kiểm tra thì chưa giải quyết xung đột.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Khung hội thoại xung đột: sự kiện, tác động, lợi ích mỗi bên, tiêu chí chung, lựa chọn, cam kết, tín hiệu cảnh báo tái phát.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Xung đột không được quản trị sẽ thành chính trị ngầm; xung đột được quản trị tốt sẽ thành học hỏi.</p></section><section class="lesson" id="Module-11-hieu-suat-trach-nhiem-va-cong-bang"><div class="source-label">Module-11-hieu-suat-trach-nhiem-va-cong-bang.md</div><h1 id="module-11-hieu-suat-trach-nhiem-va-cong-bang">Module 11: Hiệu suất, trách nhiệm và công bằng</h1>
+<p><strong>Quản trị kết quả mà không hạ thấp con người thành chỉ số.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Hiệu suất bền vững cần tiêu chuẩn rõ, phản hồi thường xuyên, nguồn lực phù hợp và cảm nhận công bằng.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Hiệu suất là kết quả của năng lực, động lực, điều kiện, phối hợp và tiêu chuẩn đánh giá. Trách nhiệm là khả năng nối cam kết với hành động và hệ quả rõ ràng.</p>
+<p><strong>Cơ chế:</strong> Con người chấp nhận tiêu chuẩn cao hơn khi họ hiểu mục tiêu, thấy quy trình công bằng, nhận phản hồi đúng lúc và có quyền tác động đến kết quả.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Công bằng phân phối</td><td>Cảm nhận về việc lợi ích và gánh nặng được chia như thế nào.</td></tr>
+<tr><td>Công bằng quy trình</td><td>Cảm nhận về cách quyết định được đưa ra.</td></tr>
+<tr><td>Trách nhiệm học tập</td><td>Tập trung tìm nguyên nhân và cải thiện trước khi quy lỗi.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Dùng KPI thay cho mục tiêu</td><td>Chỉ số là tín hiệu, không phải toàn bộ giá trị.</td></tr>
+<tr><td>Khoan dung mơ hồ</td><td>Không xử lý hiệu suất kém kéo dài sẽ bất công với người còn lại.</td></tr>
+<tr><td>Kỷ luật mà không kiểm tra điều kiện</td><td>Cá nhân có thể bị quy lỗi cho vấn đề hệ thống.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Người giỏi thấy tiêu chuẩn kép.</li>
+<li>Mục tiêu thay đổi nhưng cách đánh giá không đổi.</li>
+<li>Feedback chỉ đến khi có vấn đề lớn.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Trước khi kết luận một quản lý cấp trung yếu, xem bốn điều: mục tiêu có rõ không, quyền quyết định có đủ không, đội có năng lực không, hệ thống đo có đúng không.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Xếp hạng nhân viên mà không giải thích tiêu chí và bằng chứng làm suy giảm niềm tin dù kết quả có thể đúng.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Bảng chẩn đoán hiệu suất: mục tiêu, tiêu chuẩn, năng lực, động lực, điều kiện, phối hợp, bằng chứng, quyết định tiếp theo.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Hiệu suất bền vững cần tiêu chuẩn rõ, phản hồi thường xuyên, nguồn lực phù hợp và cảm nhận công bằng.</p></section><section class="lesson" id="Module-12-dong-luc-nhom-vai-tro-va-chuan-muc"><div class="source-label">Module-12-dong-luc-nhom-vai-tro-va-chuan-muc.md</div><h1 id="module-12-dong-luc-nhom-vai-tro-va-chuan-muc">Module 12: Động lực nhóm, vai trò và chuẩn mực</h1>
+<p><strong>Hiểu nhóm như một hệ thống hành vi, không chỉ là tập hợp cá nhân.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Nhóm tạo hành vi qua chuẩn mực; điều được lặp lại, thưởng và bỏ qua sẽ trở thành văn hóa nhỏ.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Nhóm có mục tiêu, vai trò, chuẩn mực, dòng thông tin, ký ức chung và cơ chế điều chỉnh. Một cá nhân thay đổi hành vi khi cấu trúc nhóm thay đổi.</p>
+<p><strong>Cơ chế:</strong> Chuẩn mực hình thành từ hành vi lặp lại của người có ảnh hưởng, phản ứng của nhóm trước sai lệch và cách thành công được công nhận.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Vai trò</td><td>Kỳ vọng về trách nhiệm, quyền quyết định và cách đóng góp của một vị trí trong nhóm.</td></tr>
+<tr><td>Chuẩn mực</td><td>Luật không viết thành văn về điều được phép, được khen hoặc bị phạt.</td></tr>
+<tr><td>Phối hợp</td><td>Quá trình đồng bộ thông tin, thời điểm, phụ thuộc và quyết định.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Tối ưu cá nhân nhưng bỏ qua phụ thuộc</td><td>Một người làm tốt vẫn có thể gây nghẽn nếu vai trò không rõ.</td></tr>
+<tr><td>Gọi mọi thứ là văn hóa</td><td>Cần chỉ ra chuẩn mực cụ thể và hành vi lặp lại.</td></tr>
+<tr><td>Họp nhiều để tạo phối hợp</td><td>Họp không thay thế được quyền quyết định và giao diện công việc rõ.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Việc rơi giữa các vai trò.</li>
+<li>Người mới học bằng đoán thay vì tài liệu và phản hồi.</li>
+<li>Nhóm có anh hùng cá nhân nhưng hiệu suất tổng thể thất thường.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Một nhóm kỹ thuật hay trễ release có thể không thiếu cố gắng; phụ thuộc giữa product, QA và backend không có người điều phối rõ.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Tuyển thêm người giỏi vào nhóm có chuẩn mực xấu thường làm vấn đề lan rộng hơn.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Bản đồ nhóm: mục tiêu chung, vai trò, phụ thuộc, chuẩn mực hiện tại, chuẩn mực mong muốn và nghi thức củng cố.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Nhóm tạo hành vi qua chuẩn mực; điều được lặp lại, thưởng và bỏ qua sẽ trở thành văn hóa nhỏ.</p></section><section class="lesson" id="Module-13-thay-doi-hoc-hoi-va-thoi-quen"><div class="source-label">Module-13-thay-doi-hoc-hoi-va-thoi-quen.md</div><h1 id="module-13-thay-doi-hoc-hoi-va-thoi-quen">Module 13: Thay đổi, học hỏi và thói quen</h1>
+<p><strong>Vì sao hiểu đúng vẫn chưa đủ để hành vi thay đổi.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Thay đổi bền là thiết kế lại tín hiệu, khả năng, phần thưởng và danh tính nghề nghiệp.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Con người không thay đổi chỉ vì được thuyết phục. Họ thay đổi khi hành vi mới trở nên rõ, khả thi, được củng cố và phù hợp với cách họ nhìn về mình trong nhóm.</p>
+<p><strong>Cơ chế:</strong> Thói quen bám vào tín hiệu môi trường và phần thưởng. Tổ chức duy trì hành vi cũ qua quy trình, lịch họp, chỉ số, chuyện kể và người có quyền lực.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Thói quen</td><td>Mẫu hành vi tự động hóa bởi tín hiệu và kết quả lặp lại.</td></tr>
+<tr><td>Học hỏi người lớn</td><td>Học gắn với vấn đề thật, phản hồi, tự chủ và ý nghĩa nghề nghiệp.</td></tr>
+<tr><td>Kháng cự thay đổi</td><td>Thông tin về rủi ro, mất mát hoặc thiếu tin cậy, không chỉ là thái độ xấu.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Truyền thông thay cho thay đổi hệ thống</td><td>Thông báo mới không đủ nếu lịch, chỉ số và quyền quyết định vẫn cũ.</td></tr>
+<tr><td>Đổ lỗi cho người chống đối</td><td>Kháng cự có thể chỉ ra điểm mù của kế hoạch.</td></tr>
+<tr><td>Đòi thay đổi lớn ngay</td><td>Hành vi mới cần thử nghiệm nhỏ và phản hồi nhanh.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Mọi người đồng ý trong workshop nhưng quay lại cách cũ sau một tuần.</li>
+<li>Quy trình mới tăng việc hành chính mà không giảm đau thật.</li>
+<li>Người có ảnh hưởng ngầm không tham gia thiết kế thay đổi.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Muốn đội viết postmortem tốt hơn, không chỉ đào tạo; cần mẫu nhẹ, thời gian cố định, phản hồi không đổ lỗi và lãnh đạo dùng bài học để sửa hệ thống.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một khóa đào tạo kỹ năng không tạo thay đổi nếu quản lý trực tiếp không quan sát, phản hồi và bảo vệ thời gian thực hành.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Thiết kế thay đổi 2 tuần: chọn một hành vi nhỏ, tín hiệu kích hoạt, phần thưởng học hỏi, người quan sát và chỉ số sớm.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Thay đổi bền là thiết kế lại tín hiệu, khả năng, phần thưởng và danh tính nghề nghiệp.</p></section><section class="lesson" id="Module-14-coaching-phat-trien-va-uy-quyen"><div class="source-label">Module-14-coaching-phat-trien-va-uy-quyen.md</div><h1 id="module-14-coaching-phat-trien-con-nguoi-va-uy-quyen">Module 14: Coaching, phát triển con người và ủy quyền</h1>
+<p><strong>Giúp người khác lớn lên mà không làm thay trách nhiệm của họ.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Phát triển con người là chuyển dần quyền suy nghĩ, quyết định và học hỏi về cho người thực hiện.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Coaching trong quản lý là quá trình giúp người khác nhìn rõ mục tiêu, thực tại, lựa chọn và cam kết hành động; không phải trị liệu, cũng không phải cố vấn mọi lúc.</p>
+<p><strong>Cơ chế:</strong> Người học phát triển khi được giao thách thức vừa sức, có phản hồi kịp thời, được phép thử sai có kiểm soát và được phản tư về mô hình suy nghĩ của mình.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Coaching</td><td>Hỏi và phản chiếu để người khác tự xây năng lực ra quyết định.</td></tr>
+<tr><td>Mentoring</td><td>Chia sẻ kinh nghiệm, định hướng và bài học nghề nghiệp.</td></tr>
+<tr><td>Ủy quyền</td><td>Chuyển trách nhiệm kèm quyền quyết định, tiêu chuẩn, nguồn lực và điểm kiểm tra.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Hỏi giả vờ khi đã có đáp án</td><td>Điều này làm coaching thành thao túng mềm.</td></tr>
+<tr><td>Ủy quyền thiếu quyền</td><td>Giao trách nhiệm mà giữ mọi quyết định khiến người nhận bị kẹt.</td></tr>
+<tr><td>Phát triển không gắn với công việc thật</td><td>Kỹ năng lớn lên qua nhiệm vụ có phản hồi, không chỉ qua lời khuyên.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Quản lý luôn là nút cổ chai.</li>
+<li>Nhân viên hỏi mọi quyết định nhỏ vì sợ sai.</li>
+<li>Kế hoạch phát triển nhiều khóa học nhưng ít nhiệm vụ stretch assignment.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Thay vì sửa bản kế hoạch ngay, quản lý hỏi: mục tiêu quyết định là gì, giả định rủi ro nhất là gì, dữ liệu nào còn thiếu, bạn đề xuất hai lựa chọn nào?</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>“Cứ chủ động đi” không phải ủy quyền nếu không nói rõ phạm vi quyết định và tiêu chuẩn thành công.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Ma trận ủy quyền: nhiệm vụ, kết quả mong đợi, quyền quyết định, ranh giới rủi ro, nhịp cập nhật, hỗ trợ cần thiết.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Phát triển con người là chuyển dần quyền suy nghĩ, quyết định và học hỏi về cho người thực hiện.</p></section><section class="lesson" id="Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich"><div class="source-label">Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich.md</div><h1 id="module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich">Module 15: Văn hóa, biểu tượng và hệ thống khuyến khích</h1>
+<p><strong>Văn hóa là điều hệ thống dạy con người làm khi không ai nhìn.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Văn hóa không nằm trong poster; nó nằm trong hành vi được thăng chức, câu chuyện được kể và vấn đề được bỏ qua.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Văn hóa tổ chức là tập hợp giả định, chuẩn mực và thực hành định hình cách con người hiểu thành công, rủi ro, quyền lực và thuộc về.</p>
+<p><strong>Cơ chế:</strong> Văn hóa được củng cố qua tuyển dụng, thăng chức, khen thưởng, nghi thức, câu chuyện, phản ứng với khủng hoảng và cách lãnh đạo xử lý ngoại lệ.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Giả định nền</td><td>Niềm tin ít được nói ra về con người, khách hàng, rủi ro và thành công.</td></tr>
+<tr><td>Biểu tượng</td><td>Hành động hoặc vật thể mang thông điệp văn hóa: ai được mời họp, điều gì được khen, ai được lắng nghe.</td></tr>
+<tr><td>Hệ thống khuyến khích</td><td>Cách phần thưởng, chỉ số và cơ hội khiến hành vi này dễ hơn hành vi khác.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Dùng giá trị treo tường để thay đổi văn hóa</td><td>Giá trị không có hệ quả hành vi sẽ bị xem là truyền thông.</td></tr>
+<tr><td>Lẫn văn hóa mạnh với kiểm soát mạnh</td><td>Văn hóa trưởng thành cho phép khác biệt trong chuẩn mực chung.</td></tr>
+<tr><td>Chỉ trách thái độ cá nhân</td><td>Hệ thống thưởng phạt có thể đang dạy hành vi trái giá trị.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Giá trị nói “khách hàng trước tiên” nhưng thăng chức người tối ưu chỉ số nội bộ.</li>
+<li>Nhân viên biết điều gì không nên nói dù không ai cấm.</li>
+<li>Khủng hoảng làm lộ giá trị thật.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Nếu công ty nói đề cao học hỏi, lãnh đạo phải thưởng việc báo lỗi sớm và sửa hệ thống, không chỉ thưởng dự án không có vấn đề.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một buổi town hall cảm xúc không thay văn hóa nếu cơ chế đánh giá vẫn trừng phạt người nói thật.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Audit văn hóa: liệt kê năm hành vi được khen, năm hành vi được thăng chức, năm vấn đề bị tránh, rồi so với giá trị tuyên bố.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Văn hóa không nằm trong poster; nó nằm trong hành vi được thăng chức, câu chuyện được kể và vấn đề được bỏ qua.</p></section><section class="lesson" id="Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi"><div class="source-label">Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi.md</div><h1 id="module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi-quan-ly">Module 16: Sức khỏe tâm lý, burnout và ranh giới quản lý</h1>
+<p><strong>Nhận biết rủi ro con người mà không đóng vai bác sĩ hay nhà trị liệu.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Quản lý có trách nhiệm tạo điều kiện làm việc lành mạnh và biết khi nào cần chuyển tuyến chuyên môn.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Sức khỏe tâm lý trong công việc chịu ảnh hưởng bởi tải công việc, quyền kiểm soát, hỗ trợ, công bằng, ý nghĩa, an toàn và đời sống ngoài công việc. Burnout là tín hiệu hệ thống cần được xem nghiêm túc.</p>
+<p><strong>Cơ chế:</strong> Khi yêu cầu công việc cao kéo dài trong khi nguồn lực thấp, con người cạn năng lượng, xa cách cảm xúc và giảm cảm giác hiệu quả. Can thiệp chỉ ở cá nhân thường không đủ nếu nguồn gây hại vẫn còn.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Burnout</td><td>Trạng thái liên quan công việc gồm cạn kiệt, xa cách hoặc hoài nghi và giảm hiệu quả cảm nhận.</td></tr>
+<tr><td>Ranh giới quản lý</td><td>Quản lý hỗ trợ, điều chỉnh công việc và giới thiệu nguồn lực; không chẩn đoán hoặc điều trị.</td></tr>
+<tr><td>Yếu tố tâm lý xã hội</td><td>Điều kiện công việc ảnh hưởng đến sức khỏe tâm lý như tải việc, quyền kiểm soát, quan hệ và công bằng.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Gọi mọi mệt mỏi là burnout</td><td>Cần quan sát mẫu kéo dài, tác động và bối cảnh công việc.</td></tr>
+<tr><td>Đẩy trách nhiệm sang cá nhân bằng wellness</td><td>Thiền hoặc nghỉ phép không sửa được tải việc phi thực tế.</td></tr>
+<tr><td>Hỏi thông tin riêng tư quá mức</td><td>Hỗ trợ phải tôn trọng quyền riêng tư và chính sách nhân sự/pháp lý.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Cạn kiệt kéo dài, giảm gắn kết, hoài nghi, lỗi tăng, nghỉ ốm tăng.</li>
+<li>Người từng chủ động trở nên né tránh và mất cảm giác hiệu quả.</li>
+<li>Đội coi làm quá giờ liên tục là chuẩn bình thường.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Một quản lý thấy nhân viên thay đổi mạnh về năng lượng nên nói về quan sát công việc, hỏi nhu cầu hỗ trợ, điều chỉnh tải nếu có thể và giới thiệu EAP/HR/chuyên gia khi cần.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>“Bạn chỉ cần quản lý thời gian tốt hơn” có thể làm nặng thêm xấu hổ nếu nguyên nhân là quá tải cấu trúc.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Checklist ranh giới: quan sát hành vi công việc, hỏi hỗ trợ mong muốn, điều chỉnh điều kiện, ghi nhận rủi ro, chuyển tuyến khi có dấu hiệu nghiêm trọng.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Quản lý có trách nhiệm tạo điều kiện làm việc lành mạnh và biết khi nào cần chuyển tuyến chuyên môn.</p></section><section class="lesson" id="Module-17-khung-hoang-sai-pham-va-an-toan"><div class="source-label">Module-17-khung-hoang-sai-pham-va-an-toan.md</div><h1 id="module-17-khung-hoang-sai-pham-va-an-toan">Module 17: Khủng hoảng, sai phạm và an toàn</h1>
+<p><strong>Giữ con người, sự thật và trách nhiệm khi tình huống khó leo thang.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Trong khủng hoảng, nhiệm vụ đầu tiên là bảo vệ an toàn và sự thật; nhiệm vụ tiếp theo là học và sửa hệ thống.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Khủng hoảng tổ chức làm tăng đe dọa, thu hẹp nhận thức và phóng đại quyền lực. Lãnh đạo cần quy trình rõ để bảo vệ người liên quan, dữ kiện, công bằng và khả năng phục hồi.</p>
+<p><strong>Cơ chế:</strong> Dưới áp lực, nhóm dễ tìm vật tế thần, che giấu thông tin hoặc ra quyết định quá nhanh. Cấu trúc phản ứng trước khủng hoảng giúp giảm tùy tiện.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>An toàn</td><td>Trạng thái rủi ro gây hại được nhận diện, giảm thiểu và theo dõi.</td></tr>
+<tr><td>Sai phạm</td><td>Hành vi vi phạm chuẩn mực, chính sách, đạo đức hoặc pháp luật.</td></tr>
+<tr><td>Công bằng điều tra</td><td>Quy trình bảo vệ dữ kiện, quyền của các bên và quyết định dựa trên bằng chứng.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Ưu tiên danh tiếng hơn an toàn</td><td>Che giấu có thể làm hại người liên quan và tăng rủi ro pháp lý.</td></tr>
+<tr><td>Vội kết luận để giảm lo lắng</td><td>Kết luận sớm có thể bất công và làm mất dữ kiện.</td></tr>
+<tr><td>Dùng văn hóa học hỏi để né trách nhiệm</td><td>Học hỏi không thay thế kỷ luật khi có cố ý gây hại hoặc vi phạm nghiêm trọng.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Tin đồn lan nhanh hơn thông tin chính thức.</li>
+<li>Người báo cáo sợ bị trả đũa.</li>
+<li>Lãnh đạo xử lý theo quan hệ thay vì quy trình.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Khi có cáo buộc quấy rối, quản lý không tự điều tra sâu; họ bảo vệ người báo cáo, ghi nhận thông tin cần thiết, chuyển HR/pháp lý theo quy trình và tránh hứa điều ngoài thẩm quyền.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Gọi hai bên vào “hòa giải” khi có chênh lệch quyền lực hoặc cáo buộc nghiêm trọng có thể gây hại thêm.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Quy trình 5 bước: bảo vệ an toàn, giữ dữ kiện, kích hoạt đúng kênh, truyền thông tối thiểu cần thiết, review hệ thống sau xử lý.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Trong khủng hoảng, nhiệm vụ đầu tiên là bảo vệ an toàn và sự thật; nhiệm vụ tiếp theo là học và sửa hệ thống.</p></section><section class="lesson" id="Module-18-bang-chung-do-luong-va-thuc-nghiem"><div class="source-label">Module-18-bang-chung-do-luong-va-thuc-nghiem.md</div><h1 id="module-18-bang-chung-do-luong-va-thuc-nghiem-trong-lanh-dao">Module 18: Bằng chứng, đo lường và thực nghiệm trong lãnh đạo</h1>
+<p><strong>Ra quyết định nhân sự bằng dữ kiện tốt hơn, không bằng vẻ khoa học.</strong></p>
+<p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
+<hr>
+<h2 id="0-vi-sao-cap-quan-ly-lanh-dao-can-hoc-chu-de-nay">0. Vì sao cấp quản lý, lãnh đạo cần học chủ đề này?</h2>
+<ul>
+<li>Quyết định của lãnh đạo ảnh hưởng đến cảm xúc, động lực, sự an toàn, hiệu suất và tương lai nghề nghiệp của người khác.</li>
+<li>Những vấn đề bị gọi là “con người” thường là tương tác giữa cá nhân, nhóm, hệ thống và quyền lực.</li>
+<li>Hiểu tâm lý học giúp lãnh đạo giảm phán đoán vội, thiết kế điều kiện làm việc tốt hơn và biết ranh giới trách nhiệm.</li>
+</ul>
+<p><strong>Một câu cần nhớ:</strong> Đo lường tốt không làm mất tính người; nó giúp lãnh đạo bớt tùy tiện và học nhanh hơn.</p>
+<p><strong>Mục tiêu học tập:</strong></p>
+<ul>
+<li>Giải thích được bản chất của chủ đề bằng ngôn ngữ rõ ràng.</li>
+<li>Phân biệt dữ kiện, diễn giải, giả thuyết và kết luận khi áp dụng vào tình huống thật.</li>
+<li>Chọn được một hành động nhỏ, có đạo đức và có thể kiểm chứng trong bối cảnh quản lý.</li>
+</ul>
+<hr>
+<h2 id="1-first-principles-cau-hoi-goc-la-gi">1. First principles: câu hỏi gốc là gì?</h2>
+<p><strong>Bản chất:</strong> Tâm lý học ứng dụng cần bằng chứng, nhưng bằng chứng trong tổ chức thường không hoàn hảo. Lãnh đạo phải biết phân biệt dữ liệu, chỉ số, tín hiệu, giả thuyết và kết luận hành động.</p>
+<p><strong>Cơ chế:</strong> Chỉ số định hình chú ý và hành vi. Nếu đo sai hoặc dùng sai, tổ chức tối ưu con số thay vì giá trị thật. Thực nghiệm nhỏ giúp học mà không đặt cược cả hệ thống.</p>
+<div class="table-wrap"><table>
+<tr><th>Lớp cần nhìn</th><th>Câu hỏi lãnh đạo cần hỏi</th><th>Ý nghĩa thực tiễn</th></tr>
+<tr><td>Cá nhân</td><td>Người này đang cần gì, hiểu gì, sợ gì, có năng lực gì?</td><td>Tránh quy mọi thứ thành thái độ.</td></tr>
+<tr><td>Quan hệ</td><td>Niềm tin, quyền lực và lịch sử tương tác đang tác động thế nào?</td><td>Tránh nhìn hành vi tách khỏi quan hệ.</td></tr>
+<tr><td>Công việc</td><td>Mục tiêu, vai trò, nguồn lực và tiêu chuẩn có rõ không?</td><td>Tránh yêu cầu trách nhiệm khi điều kiện mơ hồ.</td></tr>
+<tr><td>Hệ thống</td><td>Điều gì đang được thưởng, phạt, đo lường hoặc bỏ qua?</td><td>Tìm nguyên nhân lặp lại.</td></tr>
+<tr><td>Đạo đức</td><td>Ứng dụng này có tăng sự tự chủ và công bằng không?</td><td>Tránh thao túng hoặc lạm dụng quyền lực.</td></tr>
+</table></div>
+<h2 id="2-khai-niem-cot-loi">2. Khái niệm cốt lõi</h2>
+<div class="table-wrap"><table>
+<tr><th>Khái niệm</th><th>Định nghĩa thực dụng</th></tr>
+<tr><td>Bằng chứng</td><td>Thông tin có thể kiểm tra, liên quan đến câu hỏi và đủ tin cậy cho mức rủi ro quyết định.</td></tr>
+<tr><td>Chỉ số dẫn</td><td>Tín hiệu sớm có khả năng dự báo kết quả sau.</td></tr>
+<tr><td>Thử nghiệm an toàn</td><td>Can thiệp nhỏ, có giả thuyết, tiêu chí dừng và quan sát hệ quả phụ.</td></tr>
+</table></div>
+<h3 id="dieu-thuong-bi-hieu-sai">Điều thường bị hiểu sai</h3>
+<div class="table-wrap"><table>
+<tr><th>Hiểu sai</th><th>Cách hiểu đúng hơn</th></tr>
+<tr><td>Khảo sát nhiều nhưng không hành động</td><td>Hỏi ý kiến rồi bỏ qua làm giảm niềm tin.</td></tr>
+<tr><td>Đồng nhất tương quan với nguyên nhân</td><td>Hai biến đi cùng nhau không chứng minh biến này gây biến kia.</td></tr>
+<tr><td>Dùng benchmark thay cho mục tiêu riêng</td><td>Tổ chức khác có bối cảnh, chiến lược và rủi ro khác.</td></tr>
+</table></div>
+<h3 id="dau-hieu-nhan-biet-trong-to-chuc">Dấu hiệu nhận biết trong tổ chức</h3>
+<ul>
+<li>Dashboard đẹp nhưng không ai đổi quyết định.</li>
+<li>Chỉ số được game hóa.</li>
+<li>Các sáng kiến nhân sự triển khai toàn công ty mà không thử nghiệm nhỏ.</li>
+</ul>
+<h2 id="3-vi-du-va-phan-vi-du">3. Ví dụ và phản ví dụ</h2>
+<div class="table-wrap"><table>
+<tr><th>Loại</th><th>Mô tả</th><th>Bài học</th></tr>
+<tr><td>Ví dụ đúng</td><td>Trước khi áp dụng chính sách họp mới toàn công ty, thử trong hai đội bốn tuần với chỉ số: thời lượng họp, tốc độ quyết định, chất lượng phối hợp và phản hồi năng lượng.</td><td>Quan sát kỹ hơn giúp lãnh đạo can thiệp vào nguyên nhân thay vì chỉ phản ứng với bề mặt.</td></tr>
+<tr><td>Phản ví dụ</td><td>Một khảo sát hài lòng cao không chứng minh văn hóa khỏe nếu nhóm sợ trả lời thật hoặc câu hỏi không đo điều quan trọng.</td><td>Khi thuật ngữ tâm lý thay thế dữ kiện và trách nhiệm, nó làm chất lượng lãnh đạo kém đi.</td></tr>
+</table></div>
+<h2 id="4-cong-cu-thuc-hanh">4. Công cụ thực hành</h2>
+<p><strong>Công cụ:</strong> Canvas thực nghiệm: vấn đề, giả thuyết, can thiệp nhỏ, nhóm thử, chỉ số dẫn, hệ quả phụ, tiêu chí dừng, quyết định sau thử nghiệm.</p>
+<pre><code>
+Tình huống:
+
+Dữ kiện quan sát:
+
+Diễn giải đầu tiên của tôi:
+
+Hai giả thuyết thay thế:
+
+Yếu tố hệ thống có thể liên quan:
+
+Hành động nhỏ nhất có trách nhiệm:
+
+Dấu hiệu cho thấy hành động này hiệu quả:
+
+Rủi ro nếu dùng sai:
+
+Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp có thẩm quyền:
+
+</code></pre>
+<h2 id="5-cau-hoi-ung-dung-cho-lanh-dao">5. Câu hỏi ứng dụng cho lãnh đạo</h2>
+<ul>
+<li>Tôi đang xử lý vấn đề ở tầng cá nhân, quan hệ, công việc hay hệ thống?</li>
+<li>Tôi có đủ dữ kiện để kết luận chưa, hay chỉ có một câu chuyện hợp lý?</li>
+<li>Người chịu ảnh hưởng có hiểu mục tiêu, quyền lựa chọn và rủi ro không?</li>
+<li>Can thiệp này làm tăng năng lực và trách nhiệm, hay chỉ làm tăng sự phục tùng?</li>
+<li>Dấu hiệu nào trong hai tuần tới sẽ cho biết tôi đang đúng hoặc sai?</li>
+</ul>
+<h2 id="6-lo-trinh-thuc-hanh-4-tuan">6. Lộ trình thực hành 4 tuần</h2>
+<div class="table-wrap"><table>
+<tr><th>Tuần</th><th>Trọng tâm</th><th>Bài tập</th></tr>
+<tr><td>1</td><td>Quan sát</td><td>Ghi lại ba tình huống thật có liên quan đến chủ đề này, chỉ viết dữ kiện.</td></tr>
+<tr><td>2</td><td>Diễn giải</td><td>Với mỗi tình huống, viết ít nhất ba giả thuyết khác nhau.</td></tr>
+<tr><td>3</td><td>Can thiệp nhỏ</td><td>Chọn một hành động có rủi ro thấp và tiêu chí quan sát rõ.</td></tr>
+<tr><td>4</td><td>Phản tư</td><td>So sánh kết quả với giả thuyết ban đầu, điều chỉnh cách hiểu và cách làm.</td></tr>
+</table></div>
+<h2 id="7-bang-tom-tat-first-principles">7. Bảng tóm tắt first principles</h2>
+<div class="table-wrap"><table>
+<tr><th>Chủ đề</th><th>Bản chất</th><th>Rủi ro nếu hiểu sai</th><th>Câu hỏi áp dụng</th></tr>
+<tr><td>Con người</td><td>Hành vi có nhiều nguyên nhân cùng lúc.</td><td>Quy lỗi cá nhân quá nhanh.</td><td>Còn nguyên nhân hợp lý nào khác không?</td></tr>
+<tr><td>Hệ thống</td><td>Điều được đo và thưởng sẽ định hình hành vi.</td><td>Sửa người nhưng giữ nguyên điều kiện gây lỗi.</td><td>Hệ thống đang dạy điều gì?</td></tr>
+<tr><td>Quyền lực</td><td>Tín hiệu của lãnh đạo có trọng lượng lớn.</td><td>Gây im lặng hoặc phục tùng giả.</td><td>Người ít quyền lực có thể nói không không?</td></tr>
+<tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
+</table></div>
+<h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
+<p>Đo lường tốt không làm mất tính người; nó giúp lãnh đạo bớt tùy tiện và học nhanh hơn.</p></section>
+    </main>
+  </div>
+</body>
+</html>
