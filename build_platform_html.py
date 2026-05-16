@@ -118,7 +118,7 @@ def first_heading(path: Path) -> str:
 
 def collect_documents() -> list[Path]:
     ordered: list[Path] = []
-    for pattern in ["README.md", "ban-do*.md", "giao-trinh*.md", "thuat-ngu*.md", "glossary.md"]:
+    for pattern in ["README.md", "ban-do*.md", "giao-trinh*.md", "thuat-ngu*.md", "cong-cu*.md", "glossary.md"]:
         for path in sorted(ROOT.glob(pattern)):
             if path.exists() and path not in ordered:
                 ordered.append(path)

@@ -22,6 +22,56 @@
 
 ---
 
+
+## Tình huống mở đầu: vấn đề thật
+
+Một nhân viên giỏi giảm năng lượng, hay cáu, nghỉ ốm nhiều. Quản lý vừa lo hiệu suất vừa sợ hỏi sai về đời tư.
+
+**Cách nhìn lại vấn đề:** Quản lý không chẩn đoán; quản lý quan sát tác động công việc, giảm yếu tố gây hại trong phạm vi quyền hạn và chuyển tuyến khi cần.
+
+## Mô hình tư duy có thể tái sử dụng
+
+Khung rủi ro tâm lý xã hội: tải việc, quyền kiểm soát, hỗ trợ, công bằng, vai trò, an toàn, hồi phục.
+
+| Thành phần | Câu hỏi kiểm tra | Đầu ra cần có |
+|---|---|---|
+| Triệu chứng | Điều gì đang xuất hiện trên bề mặt? | Mô tả hành vi/kết quả quan sát được. |
+| Cơ chế | Điều gì làm triệu chứng này lặp lại? | Giả thuyết về nguyên nhân có thể kiểm chứng. |
+| Đòn bẩy | Can thiệp nhỏ nào đổi được điều kiện vận hành? | Một thay đổi cụ thể trong giao tiếp, vai trò, quy trình hoặc hệ thống. |
+| Rủi ro | Điều gì có thể bị làm hại nếu áp dụng sai? | Ranh giới, người chịu ảnh hưởng và điều kiện dừng. |
+
+## Quy trình hành động trong bối cảnh thật
+
+| Bước | Đầu vào | Hành động | Đầu ra | Lỗi thường gặp |
+|---|---|---|---|---|
+| 1. Gọi đúng vấn đề | Dữ kiện, người liên quan, áp lực thời gian | Tách triệu chứng khỏi nguyên nhân gần và nguyên nhân gốc | Một câu mô tả vấn đề không gắn nhãn con người | Dùng tính từ thay cho dữ kiện |
+| 2. Chọn tầng can thiệp | Bản đồ cá nhân, quan hệ, công việc, hệ thống | Chọn đòn bẩy nhỏ nhất có khả năng tạo học hỏi | Một thử nghiệm hoặc cuộc trao đổi rõ mục tiêu | Làm quá lớn, quá nhanh, thiếu quyền quyết định |
+| 3. Kiểm tra và sửa | Tín hiệu sau can thiệp | So sánh kết quả với giả thuyết, hỏi phản hồi, điều chỉnh | Bài học và bước tiếp theo | Xem một kết quả đơn lẻ là bằng chứng cuối cùng |
+
+## Case thực chiến có đánh đổi
+
+Một nhóm support bị burnout. Công ty từng cung cấp app thiền nhưng không giảm ticket, không tăng quyền xử lý và không chặn khách hàng lạm dụng. Khi sửa phân bổ tải, escalation và quyền nghỉ phục hồi, tín hiệu sức khỏe cải thiện.
+
+**Câu hỏi xử lý case:**
+
+- Dữ kiện nào đủ chắc, dữ kiện nào còn thiếu?
+- Nếu bạn là người có quyền quyết định, bạn sẽ can thiệp ở tầng nào trước?
+- Ai có thể chịu chi phí nếu bạn sai?
+- Dấu hiệu nào trong hai tuần tới cho biết hướng xử lý đang hiệu quả?
+
+## Thực hành có phản hồi và rubric đầu ra
+
+**Bài tập:** Chọn một tình huống thật trong đội của bạn, viết một trang gồm: dữ kiện, ba giả thuyết, tầng can thiệp, hành động nhỏ, rủi ro, tín hiệu đo trong hai tuần.
+
+| Tiêu chí | Chưa đạt | Đạt | Xuất sắc |
+|---|---|---|---|
+| Nhìn vấn đề | Dùng nhãn chung chung | Có dữ kiện và bối cảnh | Phân biệt triệu chứng, nguyên nhân gần, nguyên nhân gốc |
+| Cơ chế | Nêu lời khuyên | Có giả thuyết nguyên nhân | Giải thích được vì sao hành vi lặp lại trong hệ thống |
+| Hành động | Đề xuất mơ hồ | Có bước tiếp theo | Có đầu vào, đầu ra, người chịu trách nhiệm, điều kiện dừng |
+| Đạo đức | Bỏ qua quyền lực/rủi ro | Có cảnh báo cơ bản | Nêu rõ người chịu ảnh hưởng, quyền từ chối, escalation boundary |
+
+**Kết quả công việc đo được:** Người học dùng được checklist ranh giới quản lý và đề xuất can thiệp vào điều kiện làm việc thay vì tự trị liệu cho nhân viên.
+
 ## 1. First principles: câu hỏi gốc là gì?
 
 **Bản chất:** Sức khỏe tâm lý trong công việc chịu ảnh hưởng bởi tải công việc, quyền kiểm soát, hỗ trợ, công bằng, ý nghĩa, an toàn và đời sống ngoài công việc. Burnout là tín hiệu hệ thống cần được xem nghiêm túc.

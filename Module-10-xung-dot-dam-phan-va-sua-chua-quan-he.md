@@ -22,6 +22,56 @@
 
 ---
 
+
+## Tình huống mở đầu: vấn đề thật
+
+Hai phòng ban tranh nhau ưu tiên. Mỗi bên có dữ kiện đúng một phần, khách hàng đang chờ, còn lãnh đạo muốn “các bạn tự phối hợp”.
+
+**Cách nhìn lại vấn đề:** Xung đột là dữ liệu về lợi ích, ràng buộc và tiêu chí chưa được làm rõ.
+
+## Mô hình tư duy có thể tái sử dụng
+
+Bản đồ xung đột: sự kiện, vị thế, lợi ích, quyền quyết định, tiêu chí chung, phương án, cam kết sửa chữa.
+
+| Thành phần | Câu hỏi kiểm tra | Đầu ra cần có |
+|---|---|---|
+| Triệu chứng | Điều gì đang xuất hiện trên bề mặt? | Mô tả hành vi/kết quả quan sát được. |
+| Cơ chế | Điều gì làm triệu chứng này lặp lại? | Giả thuyết về nguyên nhân có thể kiểm chứng. |
+| Đòn bẩy | Can thiệp nhỏ nào đổi được điều kiện vận hành? | Một thay đổi cụ thể trong giao tiếp, vai trò, quy trình hoặc hệ thống. |
+| Rủi ro | Điều gì có thể bị làm hại nếu áp dụng sai? | Ranh giới, người chịu ảnh hưởng và điều kiện dừng. |
+
+## Quy trình hành động trong bối cảnh thật
+
+| Bước | Đầu vào | Hành động | Đầu ra | Lỗi thường gặp |
+|---|---|---|---|---|
+| 1. Gọi đúng vấn đề | Dữ kiện, người liên quan, áp lực thời gian | Tách triệu chứng khỏi nguyên nhân gần và nguyên nhân gốc | Một câu mô tả vấn đề không gắn nhãn con người | Dùng tính từ thay cho dữ kiện |
+| 2. Chọn tầng can thiệp | Bản đồ cá nhân, quan hệ, công việc, hệ thống | Chọn đòn bẩy nhỏ nhất có khả năng tạo học hỏi | Một thử nghiệm hoặc cuộc trao đổi rõ mục tiêu | Làm quá lớn, quá nhanh, thiếu quyền quyết định |
+| 3. Kiểm tra và sửa | Tín hiệu sau can thiệp | So sánh kết quả với giả thuyết, hỏi phản hồi, điều chỉnh | Bài học và bước tiếp theo | Xem một kết quả đơn lẻ là bằng chứng cuối cùng |
+
+## Case thực chiến có đánh đổi
+
+Product muốn ra tính năng mới, Support muốn giảm lỗi tồn đọng. Khi chuyển từ tranh luận giải pháp sang tiêu chí chung, nhóm chọn phát hành hẹp cho khách hàng ít rủi ro và dành capacity cố định cho lỗi nghiêm trọng.
+
+**Câu hỏi xử lý case:**
+
+- Dữ kiện nào đủ chắc, dữ kiện nào còn thiếu?
+- Nếu bạn là người có quyền quyết định, bạn sẽ can thiệp ở tầng nào trước?
+- Ai có thể chịu chi phí nếu bạn sai?
+- Dấu hiệu nào trong hai tuần tới cho biết hướng xử lý đang hiệu quả?
+
+## Thực hành có phản hồi và rubric đầu ra
+
+**Bài tập:** Chọn một tình huống thật trong đội của bạn, viết một trang gồm: dữ kiện, ba giả thuyết, tầng can thiệp, hành động nhỏ, rủi ro, tín hiệu đo trong hai tuần.
+
+| Tiêu chí | Chưa đạt | Đạt | Xuất sắc |
+|---|---|---|---|
+| Nhìn vấn đề | Dùng nhãn chung chung | Có dữ kiện và bối cảnh | Phân biệt triệu chứng, nguyên nhân gần, nguyên nhân gốc |
+| Cơ chế | Nêu lời khuyên | Có giả thuyết nguyên nhân | Giải thích được vì sao hành vi lặp lại trong hệ thống |
+| Hành động | Đề xuất mơ hồ | Có bước tiếp theo | Có đầu vào, đầu ra, người chịu trách nhiệm, điều kiện dừng |
+| Đạo đức | Bỏ qua quyền lực/rủi ro | Có cảnh báo cơ bản | Nêu rõ người chịu ảnh hưởng, quyền từ chối, escalation boundary |
+
+**Kết quả công việc đo được:** Người học dẫn được một cuộc hội thoại xung đột có tiêu chí quyết định và cam kết theo dõi.
+
 ## 1. First principles: câu hỏi gốc là gì?
 
 **Bản chất:** Xung đột xuất hiện khi mục tiêu, nguồn lực, giá trị, vai trò hoặc cách hiểu khác nhau. Nó không tự tốt hay xấu; kết quả phụ thuộc vào cách nhóm xử lý khác biệt.

@@ -11,6 +11,16 @@
 | Tổ chức và phát triển | 13-15 | Thay đổi, coaching, ủy quyền và văn hóa. |
 | Rủi ro và phán đoán nâng cao | 16-18 | Sức khỏe tâm lý, khủng hoảng, sai phạm, đo lường và thực nghiệm. |
 
+## Chuẩn đầu ra của toàn giáo trình
+
+| Năng lực | Người học phải làm được | Bằng chứng đầu ra |
+|---|---|---|
+| Chẩn đoán đa tầng | Nhìn một vấn đề con người qua cá nhân, quan hệ, công việc, nhóm, hệ thống và đạo đức. | Bản đồ nguyên nhân 5 tầng cho một vấn đề thật. |
+| Phán đoán có bằng chứng | Tách dữ kiện khỏi diễn giải và giả thuyết. | Nhật ký O-I-H-A trước một quyết định nhân sự hoặc cuộc trao đổi khó. |
+| Can thiệp có trình tự | Chọn hành động nhỏ nhất phù hợp tầng vấn đề. | Workflow có đầu vào, đầu ra, người chịu trách nhiệm, tín hiệu đo. |
+| Lãnh đạo có đạo đức | Nhận diện quyền lực, quyền từ chối, rủi ro thao túng và ranh giới chuyển tuyến. | Bộ lọc đạo đức trước một yêu cầu hoặc thay đổi ảnh hưởng đến đội. |
+| Học từ thực nghiệm | Thiết kế thử nghiệm nhỏ và đo hệ quả phụ. | Canvas thử nghiệm 2-4 tuần với tiêu chí dừng. |
+
 ## Danh sách module
 
 | Module | Chủ đề | Vai trò học tập |
@@ -50,3 +60,16 @@
 - Với mỗi module, chọn một tình huống thật trong công việc để làm công cụ thực hành.
 - Sau mỗi 4 module, tổ chức một buổi phản tư: điều gì thay đổi trong cách bạn quan sát, hỏi, quyết định và thiết kế hệ thống?
 - Không áp dụng kỹ thuật tâm lý vào người khác khi thiếu minh bạch, thiếu quyền từ chối hoặc có rủi ro sức khỏe/pháp lý.
+
+## Capstone: bài thực hành cuối khóa
+
+Chọn một vấn đề thật trong đội hoặc tổ chức của bạn, ví dụ: hiệu suất giảm, xung đột liên phòng ban, burnout, phản hồi kém, im lặng trong họp, thay đổi không bám, hoặc văn hóa nói một đằng làm một nẻo.
+
+Sản phẩm cuối khóa gồm:
+
+- Một trang mô tả dữ kiện, bối cảnh, người liên quan và áp lực quyết định.
+- Bản đồ nguyên nhân 5 tầng: cá nhân, quan hệ, công việc, hệ thống, đạo đức.
+- Ít nhất ba giả thuyết thay thế và dữ kiện cần kiểm chứng.
+- Một can thiệp nhỏ trong 2-4 tuần, có chỉ số dẫn và hệ quả phụ cần theo dõi.
+- Bộ lọc đạo đức: quyền lực, quyền từ chối, minh bạch, công bằng, ranh giới chuyển tuyến.
+- Kết quả sau thử nghiệm: điều gì đúng, điều gì sai, điều gì cần sửa.

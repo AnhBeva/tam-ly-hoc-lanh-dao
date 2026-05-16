@@ -12,6 +12,16 @@ Sau khi học, người học có thể:
 - Thiết kế cuộc trò chuyện, phản hồi, ủy quyền, thay đổi và đo lường theo hướng tăng rõ ràng, tự chủ, trách nhiệm và công bằng.
 - Nhận ra ranh giới: quản lý không chẩn đoán, không trị liệu, không thao túng và phải chuyển tuyến khi có rủi ro sức khỏe, pháp lý hoặc an toàn.
 
+## Chuẩn giáo trình nâng cấp
+
+Mỗi module được thiết kế như một can thiệp xây năng lực, không chỉ là bài đọc lý thuyết. Cấu trúc học tập đi theo chuỗi:
+
+```text
+Vấn đề thật → Bản chất → Nguyên lý → Mô hình tư duy → Quy trình hành động → Case thực chiến → Thực hành có phản hồi → Công cụ mang về → Kết quả đo được
+```
+
+Người học không chỉ cần “hiểu khái niệm”, mà phải chứng minh được năng lực qua một tình huống thật: gọi đúng vấn đề, phân biệt triệu chứng và nguyên nhân, chọn tầng can thiệp, nêu rủi ro, đo tín hiệu sau hành động và biết khi nào cần chuyển tuyến.
+
 ## Đối tượng và giả định
 
 - Đối tượng: quản lý mới, quản lý cấp trung, trưởng nhóm, founder, HRBP, lãnh đạo chức năng và người chuẩn bị lên vai trò lãnh đạo.
@@ -24,6 +34,7 @@ Sau khi học, người học có thể:
 - `ban-do-tam-ly-hoc-lanh-dao.md`: bản đồ lĩnh vực và nguyên tắc phân chia.
 - `giao-trinh-tam-ly-hoc-lanh-dao.md`: lộ trình học 18 module.
 - `thuat-ngu-tam-ly-hoc-lanh-dao.md`: bảng thuật ngữ cốt lõi.
+- `cong-cu-thuc-hanh-lanh-dao.md`: bộ công cụ thực hành dùng ngay trong công việc.
 - `Module-*.md`: bài học chuyên sâu theo từng chủ đề.
 - `build_platform_html.py`: script dựng website tĩnh.
 - `index.html`: website học tập có thể mở trực tiếp hoặc đưa lên GitHub Pages.
@@ -33,7 +44,8 @@ Sau khi học, người học có thể:
 Nội dung được tổng hợp theo các nguyên lý ổn định của tâm lý học ứng dụng, tâm lý học tổ chức, khoa học hành vi và quản trị. Một số nguồn chính thức được dùng để đặt ranh giới và kiểm tra điểm nhạy cảm:
 
 - WHO, `Guidelines on mental health at work`: https://www.who.int/publications/i/item/9789240053052
-- WHO, `Mental health at work`: https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work
+- WHO, `Mental health at work` cập nhật ngày 2/9/2024: https://www.who.int/news-room/fact-sheets/detail/mental-health-at-work
+- ISO 45003:2021, `Psychological health and safety at work`: https://www.iso.org/standard/64283.html
 - National Academies, `Enhancing the Effectiveness of Team Science`: https://www.nationalacademies.org/publications/19007
 - APA, các chủ đề phổ thông về khoa học tâm lý và nơi làm việc: https://www.apa.org/topics
 
