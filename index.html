@@ -6,82 +6,168 @@
   <title>Tâm lý học ứng dụng cho quản lý và lãnh đạo</title>
   <style>
     :root {
-      --bg: #f5f5f7;
-      --panel: rgba(255,255,255,.86);
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --line: #d8d8de;
-      --accent: #0071e3;
-      --accent-2: #34c759;
-      --code: #f0f2f5;
+      --lumi-green: #008B51;
+      --lumi-green-deep: #006B3F;
+      --lumi-mint: #E6F4EE;
+      --lumi-pale: #F3FAF6;
+      --text: #1F2933;
+      --muted: #4B5563;
+      --line: #DDE5E1;
+      --surface: #FFFFFF;
+      --code: #F3F7F5;
+      --warning: #FFF7E6;
       color-scheme: light;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #fbfbfd 0%, var(--bg) 42rem);
+      background:
+        linear-gradient(90deg, rgba(0,139,81,.06) 1px, transparent 1px),
+        linear-gradient(180deg, #ffffff 0%, var(--lumi-pale) 34rem, #ffffff 70rem);
+      background-size: 44px 44px, auto;
       line-height: 1.62;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+    }
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+    .brand-logo {
+      display: block;
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+    .brand-text {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+    .brand-kicker {
+      color: var(--lumi-green);
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .brand-name {
+      color: var(--text);
+      font-size: .96rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 44vw;
+    }
+    .topbar-meta {
+      color: var(--muted);
+      font-size: .88rem;
+      white-space: nowrap;
     }
     .hero {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 72px 24px 34px;
+      padding: 56px 24px 28px;
     }
     .eyebrow {
-      color: var(--accent);
+      color: var(--lumi-green);
       font-weight: 700;
       letter-spacing: 0;
       margin-bottom: 12px;
     }
     h1, h2, h3 { letter-spacing: 0; line-height: 1.12; }
     .hero h1 {
-      max-width: 920px;
+      max-width: 980px;
       margin: 0;
-      font-size: 4.6rem;
-      line-height: .98;
+      font-size: 4.1rem;
+      line-height: 1.02;
     }
     .hero p {
-      max-width: 760px;
+      max-width: 820px;
       color: var(--muted);
-      font-size: 1.22rem;
+      font-size: 1.18rem;
       margin: 22px 0 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 28px;
+      align-items: end;
+    }
+    .promise-panel {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .promise-panel strong {
+      display: block;
+      color: var(--lumi-green-deep);
+      margin-bottom: 8px;
+    }
+    .promise-panel p {
+      margin: 0;
+      font-size: .96rem;
     }
     .stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      max-width: 720px;
       margin-top: 32px;
     }
     .stat {
-      background: var(--panel);
-      border: 1px solid rgba(0,0,0,.08);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 8px;
       padding: 18px;
     }
-    .stat strong { display: block; font-size: 1.8rem; line-height: 1; }
+    .stat strong { display: block; font-size: 1.75rem; line-height: 1; color: var(--lumi-green-deep); }
     .stat span { color: var(--muted); font-size: .92rem; }
     .shell {
       display: grid;
-      grid-template-columns: 290px minmax(0, 1fr);
-      gap: 28px;
+      grid-template-columns: 310px minmax(0, 1fr);
+      gap: 34px;
       max-width: 1180px;
       margin: 0 auto;
       padding: 22px 24px 80px;
     }
     nav {
       position: sticky;
-      top: 18px;
+      top: 86px;
       align-self: start;
-      max-height: calc(100vh - 36px);
+      max-height: calc(100vh - 104px);
       overflow: auto;
       padding: 10px;
-      border: 1px solid rgba(0,0,0,.08);
+      border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--panel);
+      background: var(--surface);
+    }
+    .nav-title {
+      padding: 10px 10px 8px;
+      color: var(--lumi-green-deep);
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
     }
     nav a {
       display: grid;
@@ -94,29 +180,57 @@
       border-radius: 8px;
       font-size: .94rem;
     }
-    nav a:hover { background: rgba(0,113,227,.08); }
+    nav a:hover { background: var(--lumi-mint); }
     nav span {
-      color: var(--muted);
+      color: var(--lumi-green);
       font-variant-numeric: tabular-nums;
     }
     main { min-width: 0; }
     .lesson {
       margin-bottom: 22px;
-      padding: 34px 0;
-      border-top: 1px solid var(--line);
+      padding: 34px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.96);
+      border-radius: 8px;
     }
     .source-label {
       display: inline-flex;
       margin-bottom: 12px;
       padding: 5px 10px;
       border-radius: 8px;
-      background: #eef5ff;
-      color: #0057b8;
+      background: var(--lumi-mint);
+      color: var(--lumi-green-deep);
       font-size: .82rem;
       font-weight: 650;
     }
+    .module-visual {
+      margin: 4px 0 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .module-visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+    }
+    .module-visual figcaption {
+      padding: 10px 14px;
+      color: var(--muted);
+      font-size: .88rem;
+      border-top: 1px solid var(--line);
+      background: var(--lumi-pale);
+    }
     .lesson h1 { font-size: 2.65rem; margin: 0 0 18px; }
-    .lesson h2 { font-size: 1.65rem; margin-top: 38px; padding-top: 8px; }
+    .lesson h2 {
+      font-size: 1.55rem;
+      margin-top: 38px;
+      padding-top: 8px;
+      color: var(--lumi-green-deep);
+    }
     .lesson h3 { font-size: 1.18rem; margin-top: 28px; }
     p, li { font-size: 1rem; }
     p { margin: 12px 0; }
@@ -125,17 +239,17 @@
     blockquote {
       margin: 18px 0;
       padding: 16px 18px;
-      border-left: 4px solid var(--accent);
-      background: #f3f8ff;
+      border-left: 4px solid var(--lumi-green);
+      background: var(--lumi-mint);
       border-radius: 8px;
-      color: #24415f;
+      color: var(--text);
     }
     .table-wrap { width: 100%; overflow-x: auto; margin: 18px 0; }
     table {
       width: 100%;
       border-collapse: collapse;
       min-width: 620px;
-      background: #fff;
+      background: var(--surface);
       border-radius: 8px;
       overflow: hidden;
     }
@@ -145,47 +259,92 @@
       text-align: left;
       vertical-align: top;
     }
-    th { background: #f6f8fb; font-weight: 720; }
+    th { background: var(--lumi-pale); font-weight: 720; color: var(--lumi-green-deep); }
     pre {
       overflow: auto;
       padding: 16px;
       background: var(--code);
       border-radius: 8px;
-      border: 1px solid #dfe3ea;
+      border: 1px solid var(--line);
     }
-    a { color: var(--accent); text-decoration-thickness: .08em; text-underline-offset: .18em; }
+    a { color: var(--lumi-green); text-decoration-thickness: .08em; text-underline-offset: .18em; }
     code { font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: .92em; }
     hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+    .reading-note {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 20px;
+    }
+    .reading-note-inner {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--lumi-green);
+      background: var(--lumi-mint);
+      border-radius: 8px;
+      padding: 16px 18px;
+      color: var(--text);
+    }
     @media (max-width: 860px) {
-      .hero { padding-top: 46px; }
+      .topbar-inner { align-items: flex-start; }
+      .brand-logo { height: 34px; }
+      .brand-name { max-width: 62vw; white-space: normal; }
+      .topbar-meta { display: none; }
+      .hero { padding-top: 34px; }
       .hero h1 { font-size: 2.45rem; }
+      .hero-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr; }
       .shell { grid-template-columns: 1fr; padding-inline: 14px; }
       nav { position: relative; top: 0; max-height: 360px; }
-      .lesson { padding: 24px 0; }
+      .lesson { padding: 24px 16px; }
       .lesson h1 { font-size: 2rem; }
+      .module-visual { margin-bottom: 20px; }
     }
     @media print {
       body { background: #fff; }
-      nav, .stats, .source-label { display: none; }
+      .topbar, nav, .stats, .source-label, .reading-note { display: none; }
       .shell { display: block; padding: 0; }
       .lesson { box-shadow: none; border: 0; page-break-after: always; }
     }
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img class="brand-logo" src="assets/lumi-logo-2022.png" alt="Lumi">
+        <div class="brand-text">
+          <div class="brand-kicker">Nền tảng học tập ứng dụng</div>
+          <div class="brand-name">Tâm lý học ứng dụng cho quản lý và lãnh đạo</div>
+        </div>
+      </div>
+      <div class="topbar-meta">Lumi learning system</div>
+    </div>
+  </header>
   <header class="hero">
-    <div class="eyebrow">Nền tảng học tập</div>
-    <h1>Tâm lý học ứng dụng cho quản lý và lãnh đạo</h1>
-    <p>Một hệ thống học tập có cấu trúc, đi từ nền tảng, first principles, công cụ thực hành đến tài liệu tra cứu dễ đọc.</p>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Lumi-branded knowledge platform</div>
+        <h1>Tâm lý học ứng dụng cho quản lý và lãnh đạo</h1>
+        <p>Một hệ thống học tập sáng, kỹ thuật và có thể thực hành: đi từ vấn đề thật, cơ chế tâm lý, workflow lãnh đạo đến công cụ đo kết quả trong công việc.</p>
+      </div>
+      <aside class="promise-panel" aria-label="Lời hứa học tập">
+        <strong>Chuẩn đầu ra</strong>
+        <p>Người học biết gọi đúng vấn đề, chọn tầng can thiệp, hành động có đạo đức và đo tín hiệu sau áp dụng.</p>
+      </aside>
+    </div>
     <div class="stats">
       <div class="stat"><strong>18</strong><span>module</span></div>
       <div class="stat"><strong>23</strong><span>tài liệu nguồn</span></div>
-      <div class="stat"><strong>HTML</strong><span>sẵn sàng cho GitHub Pages</span></div>
+      <div class="stat"><strong>#008B51</strong><span>Lumi green</span></div>
     </div>
   </header>
+  <div class="reading-note">
+    <div class="reading-note-inner">
+      Học trực tiếp từ mục lục bên dưới. Website là HTML tĩnh, logo Lumi hiển thị bằng asset gốc, nội dung được build lại từ Markdown nguồn.
+    </div>
+  </div>
   <div class="shell">
     <nav aria-label="Điều hướng giáo trình">
+      <div class="nav-title">Điều hướng nội dung</div>
       <a href="#README"><span>01</span>Tâm lý học ứng dụng cho quản lý và lãnh đạo</a>
 <a href="#ban-do-tam-ly-hoc-lanh-dao"><span>02</span>Bản đồ lĩnh vực: Tâm lý học ứng dụng cho quản lý và lãnh đạo</a>
 <a href="#giao-trinh-tam-ly-hoc-lanh-dao"><span>03</span>Giáo trình: Tâm lý học ứng dụng cho quản lý và lãnh đạo</a>
@@ -243,8 +402,9 @@ Vấn đề thật → Bản chất → Nguyên lý → Mô hình tư duy → Qu
 <li><code>thuat-ngu-tam-ly-hoc-lanh-dao.md</code>: bảng thuật ngữ cốt lõi.</li>
 <li><code>cong-cu-thuc-hanh-lanh-dao.md</code>: bộ công cụ thực hành dùng ngay trong công việc.</li>
 <li><code>Module-*.md</code>: bài học chuyên sâu theo từng chủ đề.</li>
+<li><code>assets/module-visuals/module-*.jpg</code>: ảnh trực quan photorealistic đã tối ưu cho từng module.</li>
 <li><code>build_platform_html.py</code>: script dựng website tĩnh.</li>
-<li><code>index.html</code>: website học tập có thể mở trực tiếp hoặc đưa lên GitHub Pages.</li>
+<li><code>index.html</code>: website học tập HTML tĩnh có thể mở trực tiếp trong trình duyệt.</li>
 </ul>
 <h2 id="nguon-tham-chieu-nen">Nguồn tham chiếu nền</h2>
 <p>Nội dung được tổng hợp theo các nguyên lý ổn định của tâm lý học ứng dụng, tâm lý học tổ chức, khoa học hành vi và quản trị. Một số nguồn chính thức được dùng để đặt ranh giới và kiểm tra điểm nhạy cảm:</p>
@@ -261,21 +421,13 @@ python3 build_platform_html.py
 
 </code></pre>
 <p>Sau khi build, mở <code>index.html</code> trong trình duyệt. Website là HTML tĩnh, không cần backend.</p>
-<h2 id="xuat-ban-github-pages">Xuất bản GitHub Pages</h2>
-<p>Repository dự kiến: https://github.com/AnhBeva/tam-ly-hoc-lanh-dao</p>
-<p>Trang học tập dự kiến: https://anhbeva.github.io/tam-ly-hoc-lanh-dao/</p>
-<p>Thiết lập GitHub Pages khuyến nghị:</p>
-<ul>
-<li>Branch: <code>main</code></li>
-<li>Folder: <code>/root</code></li>
-<li>Entry point: <code>index.html</code></li>
-</ul>
+<h2 id="website-html-tinh">Website HTML tĩnh</h2>
 <p>Khi chỉnh sửa nội dung, hãy cập nhật các file Markdown nguồn trước, sau đó chạy lại:</p>
 <pre><code>
 python3 build_platform_html.py
 
 </code></pre>
-<p>Commit cả Markdown nguồn, <code>build_platform_html.py</code> và <code>index.html</code> để GitHub Pages luôn phục vụ bản mới nhất.</p>
+<p>Website được build vào <code>index.html</code>, dùng logo Lumi từ <code>assets/lumi-logo-2022.png</code> và ảnh trực quan từng chương trong <code>assets/module-visuals/</code>. Không cần backend hoặc build tool phía client.</p>
 <h2 id="nguyen-tac-su-dung-co-trach-nhiem">Nguyên tắc sử dụng có trách nhiệm</h2>
 <ul>
 <li>Không dùng thuật ngữ tâm lý để gắn nhãn, làm xấu hổ hoặc kết luận bản chất con người.</li>
@@ -548,7 +700,7 @@ Tín hiệu cảnh báo xung đột tái phát:
 <tr><td>2</td><td>Dùng canvas hiệu suất hoặc khung xung đột.</td><td>Một cuộc trao đổi có dữ kiện và tiêu chí.</td></tr>
 <tr><td>3</td><td>Thiết kế một thử nghiệm nhỏ.</td><td>Một hành động có chỉ số dẫn và điều kiện dừng.</td></tr>
 <tr><td>4</td><td>Review kết quả và phản hồi.</td><td>Bài học về cơ chế, hành động tiếp theo và rủi ro còn lại.</td></tr>
-</table></div></section><section class="lesson" id="Module-01-ban-chat-va-pham-vi"><div class="source-label">Module-01-ban-chat-va-pham-vi.md</div><h1 id="module-01-ban-chat-va-pham-vi-cua-tam-ly-hoc-ung-dung-cho-lanh-dao">Module 01: Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo</h1>
+</table></div></section><section class="lesson" id="Module-01-ban-chat-va-pham-vi"><div class="source-label">Module-01-ban-chat-va-pham-vi.md</div><figure class="module-visual"><img src="assets/module-visuals/module-01.jpg" alt="Hình ảnh trực quan cho Module 01: Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo" loading="lazy"><figcaption>Trực quan hóa: Module 01: Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo</figcaption></figure><h1 id="module-01-ban-chat-va-pham-vi-cua-tam-ly-hoc-ung-dung-cho-lanh-dao">Module 01: Bản chất và phạm vi của tâm lý học ứng dụng cho lãnh đạo</h1>
 <p><strong>Hiểu con người trong tổ chức mà không biến tâm lý học thành nhãn dán hay mẹo thao túng.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -688,7 +840,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Tâm lý học lãnh đạo không phải là đọc vị người khác; đó là năng lực thiết kế điều kiện để con người suy nghĩ, cảm nhận, phối hợp và chịu trách nhiệm tốt hơn.</p></section><section class="lesson" id="Module-02-quan-sat-dien-giai-gia-thuyet"><div class="source-label">Module-02-quan-sat-dien-giai-gia-thuyet.md</div><h1 id="module-02-quan-sat-dien-giai-gia-thuyet-va-ket-luan">Module 02: Quan sát, diễn giải, giả thuyết và kết luận</h1>
+<p>Tâm lý học lãnh đạo không phải là đọc vị người khác; đó là năng lực thiết kế điều kiện để con người suy nghĩ, cảm nhận, phối hợp và chịu trách nhiệm tốt hơn.</p></section><section class="lesson" id="Module-02-quan-sat-dien-giai-gia-thuyet"><div class="source-label">Module-02-quan-sat-dien-giai-gia-thuyet.md</div><figure class="module-visual"><img src="assets/module-visuals/module-02.jpg" alt="Hình ảnh trực quan cho Module 02: Quan sát, diễn giải, giả thuyết và kết luận" loading="lazy"><figcaption>Trực quan hóa: Module 02: Quan sát, diễn giải, giả thuyết và kết luận</figcaption></figure><h1 id="module-02-quan-sat-dien-giai-gia-thuyet-va-ket-luan">Module 02: Quan sát, diễn giải, giả thuyết và kết luận</h1>
 <p><strong>Nền tảng của mọi phán đoán tâm lý có trách nhiệm.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -828,7 +980,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Lãnh đạo giỏi không kết luận nhanh hơn; họ tách dữ kiện khỏi diễn giải tốt hơn.</p></section><section class="lesson" id="Module-03-dong-luc-nhu-cau-va-nang-luong"><div class="source-label">Module-03-dong-luc-nhu-cau-va-nang-luong.md</div><h1 id="module-03-dong-luc-nhu-cau-va-nang-luong-lam-viec">Module 03: Động lực, nhu cầu và năng lượng làm việc</h1>
+<p>Lãnh đạo giỏi không kết luận nhanh hơn; họ tách dữ kiện khỏi diễn giải tốt hơn.</p></section><section class="lesson" id="Module-03-dong-luc-nhu-cau-va-nang-luong"><div class="source-label">Module-03-dong-luc-nhu-cau-va-nang-luong.md</div><figure class="module-visual"><img src="assets/module-visuals/module-03.jpg" alt="Hình ảnh trực quan cho Module 03: Động lực, nhu cầu và năng lượng làm việc" loading="lazy"><figcaption>Trực quan hóa: Module 03: Động lực, nhu cầu và năng lượng làm việc</figcaption></figure><h1 id="module-03-dong-luc-nhu-cau-va-nang-luong-lam-viec">Module 03: Động lực, nhu cầu và năng lượng làm việc</h1>
 <p><strong>Vì sao con người bắt đầu, duy trì hoặc từ bỏ nỗ lực.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -968,7 +1120,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Động lực không chỉ là muốn; nó là quan hệ giữa ý nghĩa, năng lực, phần thưởng, chi phí và cảm giác có quyền tác động.</p></section><section class="lesson" id="Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh"><div class="source-label">Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh.md</div><h1 id="module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh">Module 04: Nhận thức, thiên kiến và ra quyết định</h1>
+<p>Động lực không chỉ là muốn; nó là quan hệ giữa ý nghĩa, năng lực, phần thưởng, chi phí và cảm giác có quyền tác động.</p></section><section class="lesson" id="Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh"><div class="source-label">Module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh.md</div><figure class="module-visual"><img src="assets/module-visuals/module-04.jpg" alt="Hình ảnh trực quan cho Module 04: Nhận thức, thiên kiến và ra quyết định" loading="lazy"><figcaption>Trực quan hóa: Module 04: Nhận thức, thiên kiến và ra quyết định</figcaption></figure><h1 id="module-04-nhan-thuc-thien-kien-va-ra-quyet-dinh">Module 04: Nhận thức, thiên kiến và ra quyết định</h1>
 <p><strong>Lãnh đạo dưới giới hạn chú ý, ký ức và suy luận.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1108,7 +1260,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Thiên kiến không phải lỗi đạo đức cá nhân; đó là giới hạn hệ thống của bộ não cần được thiết kế đối trọng.</p></section><section class="lesson" id="Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh"><div class="source-label">Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh.md</div><h1 id="module-05-cam-xuc-cang-thang-va-tu-dieu-chinh">Module 05: Cảm xúc, căng thẳng và tự điều chỉnh</h1>
+<p>Thiên kiến không phải lỗi đạo đức cá nhân; đó là giới hạn hệ thống của bộ não cần được thiết kế đối trọng.</p></section><section class="lesson" id="Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh"><div class="source-label">Module-05-cam-xuc-cang-thang-va-tu-dieu-chinh.md</div><figure class="module-visual"><img src="assets/module-visuals/module-05.jpg" alt="Hình ảnh trực quan cho Module 05: Cảm xúc, căng thẳng và tự điều chỉnh" loading="lazy"><figcaption>Trực quan hóa: Module 05: Cảm xúc, căng thẳng và tự điều chỉnh</figcaption></figure><h1 id="module-05-cam-xuc-cang-thang-va-tu-dieu-chinh">Module 05: Cảm xúc, căng thẳng và tự điều chỉnh</h1>
 <p><strong>Cảm xúc là dữ liệu, không phải mệnh lệnh.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1248,7 +1400,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Cảm xúc cần được lắng nghe như tín hiệu và được quản trị như năng lượng hành động.</p></section><section class="lesson" id="Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc"><div class="source-label">Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc.md</div><h1 id="module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc">Module 06: Khác biệt cá nhân, giá trị và năng lực</h1>
+<p>Cảm xúc cần được lắng nghe như tín hiệu và được quản trị như năng lượng hành động.</p></section><section class="lesson" id="Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc"><div class="source-label">Module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc.md</div><figure class="module-visual"><img src="assets/module-visuals/module-06.jpg" alt="Hình ảnh trực quan cho Module 06: Khác biệt cá nhân, giá trị và năng lực" loading="lazy"><figcaption>Trực quan hóa: Module 06: Khác biệt cá nhân, giá trị và năng lực</figcaption></figure><h1 id="module-06-khac-biet-ca-nhan-gia-tri-va-nang-luc">Module 06: Khác biệt cá nhân, giá trị và năng lực</h1>
 <p><strong>Hiểu sự khác nhau mà không đóng khung con người.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1388,7 +1540,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Khác biệt cá nhân là đầu vào để thiết kế phối hợp, không phải lý do để cố định số phận nghề nghiệp.</p></section><section class="lesson" id="Module-07-giao-tiep-lang-nghe-phan-hoi"><div class="source-label">Module-07-giao-tiep-lang-nghe-phan-hoi.md</div><h1 id="module-07-giao-tiep-lang-nghe-va-phan-hoi">Module 07: Giao tiếp, lắng nghe và phản hồi</h1>
+<p>Khác biệt cá nhân là đầu vào để thiết kế phối hợp, không phải lý do để cố định số phận nghề nghiệp.</p></section><section class="lesson" id="Module-07-giao-tiep-lang-nghe-phan-hoi"><div class="source-label">Module-07-giao-tiep-lang-nghe-phan-hoi.md</div><figure class="module-visual"><img src="assets/module-visuals/module-07.jpg" alt="Hình ảnh trực quan cho Module 07: Giao tiếp, lắng nghe và phản hồi" loading="lazy"><figcaption>Trực quan hóa: Module 07: Giao tiếp, lắng nghe và phản hồi</figcaption></figure><h1 id="module-07-giao-tiep-lang-nghe-va-phan-hoi">Module 07: Giao tiếp, lắng nghe và phản hồi</h1>
 <p><strong>Biến trao đổi thành hiểu biết chung và hành động rõ.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1528,7 +1680,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Giao tiếp lãnh đạo tốt là giảm mơ hồ, giảm phòng vệ và tăng trách nhiệm hành động.</p></section><section class="lesson" id="Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem"><div class="source-label">Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem.md</div><h1 id="module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem">Module 08: Niềm tin, an toàn tâm lý và trách nhiệm</h1>
+<p>Giao tiếp lãnh đạo tốt là giảm mơ hồ, giảm phòng vệ và tăng trách nhiệm hành động.</p></section><section class="lesson" id="Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem"><div class="source-label">Module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem.md</div><figure class="module-visual"><img src="assets/module-visuals/module-08.jpg" alt="Hình ảnh trực quan cho Module 08: Niềm tin, an toàn tâm lý và trách nhiệm" loading="lazy"><figcaption>Trực quan hóa: Module 08: Niềm tin, an toàn tâm lý và trách nhiệm</figcaption></figure><h1 id="module-08-niem-tin-an-toan-tam-ly-va-trach-nhiem">Module 08: Niềm tin, an toàn tâm lý và trách nhiệm</h1>
 <p><strong>Tạo môi trường nói thật, học nhanh và vẫn có tiêu chuẩn cao.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1668,7 +1820,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>An toàn tâm lý không phải dễ dãi; đó là điều kiện để đối mặt sự thật mà không sợ bị hạ nhục.</p></section><section class="lesson" id="Module-09-quyen-luc-anh-huong-va-dao-duc"><div class="source-label">Module-09-quyen-luc-anh-huong-va-dao-duc.md</div><h1 id="module-09-quyen-luc-anh-huong-va-dao-duc">Module 09: Quyền lực, ảnh hưởng và đạo đức</h1>
+<p>An toàn tâm lý không phải dễ dãi; đó là điều kiện để đối mặt sự thật mà không sợ bị hạ nhục.</p></section><section class="lesson" id="Module-09-quyen-luc-anh-huong-va-dao-duc"><div class="source-label">Module-09-quyen-luc-anh-huong-va-dao-duc.md</div><figure class="module-visual"><img src="assets/module-visuals/module-09.jpg" alt="Hình ảnh trực quan cho Module 09: Quyền lực, ảnh hưởng và đạo đức" loading="lazy"><figcaption>Trực quan hóa: Module 09: Quyền lực, ảnh hưởng và đạo đức</figcaption></figure><h1 id="module-09-quyen-luc-anh-huong-va-dao-duc">Module 09: Quyền lực, ảnh hưởng và đạo đức</h1>
 <p><strong>Dùng ảnh hưởng để tăng lựa chọn và trách nhiệm, không làm người khác mất tự chủ.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1808,7 +1960,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Quyền lực làm mọi tín hiệu của lãnh đạo to hơn; vì vậy đạo đức không phải phần phụ mà là điều kiện vận hành.</p></section><section class="lesson" id="Module-10-xung-dot-dam-phan-va-sua-chua-quan-he"><div class="source-label">Module-10-xung-dot-dam-phan-va-sua-chua-quan-he.md</div><h1 id="module-10-xung-dot-dam-phan-va-sua-chua-quan-he">Module 10: Xung đột, đàm phán và sửa chữa quan hệ</h1>
+<p>Quyền lực làm mọi tín hiệu của lãnh đạo to hơn; vì vậy đạo đức không phải phần phụ mà là điều kiện vận hành.</p></section><section class="lesson" id="Module-10-xung-dot-dam-phan-va-sua-chua-quan-he"><div class="source-label">Module-10-xung-dot-dam-phan-va-sua-chua-quan-he.md</div><figure class="module-visual"><img src="assets/module-visuals/module-10.jpg" alt="Hình ảnh trực quan cho Module 10: Xung đột, đàm phán và sửa chữa quan hệ" loading="lazy"><figcaption>Trực quan hóa: Module 10: Xung đột, đàm phán và sửa chữa quan hệ</figcaption></figure><h1 id="module-10-xung-dot-dam-phan-va-sua-chua-quan-he">Module 10: Xung đột, đàm phán và sửa chữa quan hệ</h1>
 <p><strong>Chuyển va chạm thành thông tin, quyết định và cam kết mới.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -1948,7 +2100,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Xung đột không được quản trị sẽ thành chính trị ngầm; xung đột được quản trị tốt sẽ thành học hỏi.</p></section><section class="lesson" id="Module-11-hieu-suat-trach-nhiem-va-cong-bang"><div class="source-label">Module-11-hieu-suat-trach-nhiem-va-cong-bang.md</div><h1 id="module-11-hieu-suat-trach-nhiem-va-cong-bang">Module 11: Hiệu suất, trách nhiệm và công bằng</h1>
+<p>Xung đột không được quản trị sẽ thành chính trị ngầm; xung đột được quản trị tốt sẽ thành học hỏi.</p></section><section class="lesson" id="Module-11-hieu-suat-trach-nhiem-va-cong-bang"><div class="source-label">Module-11-hieu-suat-trach-nhiem-va-cong-bang.md</div><figure class="module-visual"><img src="assets/module-visuals/module-11.jpg" alt="Hình ảnh trực quan cho Module 11: Hiệu suất, trách nhiệm và công bằng" loading="lazy"><figcaption>Trực quan hóa: Module 11: Hiệu suất, trách nhiệm và công bằng</figcaption></figure><h1 id="module-11-hieu-suat-trach-nhiem-va-cong-bang">Module 11: Hiệu suất, trách nhiệm và công bằng</h1>
 <p><strong>Quản trị kết quả mà không hạ thấp con người thành chỉ số.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2088,7 +2240,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Hiệu suất bền vững cần tiêu chuẩn rõ, phản hồi thường xuyên, nguồn lực phù hợp và cảm nhận công bằng.</p></section><section class="lesson" id="Module-12-dong-luc-nhom-vai-tro-va-chuan-muc"><div class="source-label">Module-12-dong-luc-nhom-vai-tro-va-chuan-muc.md</div><h1 id="module-12-dong-luc-nhom-vai-tro-va-chuan-muc">Module 12: Động lực nhóm, vai trò và chuẩn mực</h1>
+<p>Hiệu suất bền vững cần tiêu chuẩn rõ, phản hồi thường xuyên, nguồn lực phù hợp và cảm nhận công bằng.</p></section><section class="lesson" id="Module-12-dong-luc-nhom-vai-tro-va-chuan-muc"><div class="source-label">Module-12-dong-luc-nhom-vai-tro-va-chuan-muc.md</div><figure class="module-visual"><img src="assets/module-visuals/module-12.jpg" alt="Hình ảnh trực quan cho Module 12: Động lực nhóm, vai trò và chuẩn mực" loading="lazy"><figcaption>Trực quan hóa: Module 12: Động lực nhóm, vai trò và chuẩn mực</figcaption></figure><h1 id="module-12-dong-luc-nhom-vai-tro-va-chuan-muc">Module 12: Động lực nhóm, vai trò và chuẩn mực</h1>
 <p><strong>Hiểu nhóm như một hệ thống hành vi, không chỉ là tập hợp cá nhân.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2228,7 +2380,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Nhóm tạo hành vi qua chuẩn mực; điều được lặp lại, thưởng và bỏ qua sẽ trở thành văn hóa nhỏ.</p></section><section class="lesson" id="Module-13-thay-doi-hoc-hoi-va-thoi-quen"><div class="source-label">Module-13-thay-doi-hoc-hoi-va-thoi-quen.md</div><h1 id="module-13-thay-doi-hoc-hoi-va-thoi-quen">Module 13: Thay đổi, học hỏi và thói quen</h1>
+<p>Nhóm tạo hành vi qua chuẩn mực; điều được lặp lại, thưởng và bỏ qua sẽ trở thành văn hóa nhỏ.</p></section><section class="lesson" id="Module-13-thay-doi-hoc-hoi-va-thoi-quen"><div class="source-label">Module-13-thay-doi-hoc-hoi-va-thoi-quen.md</div><figure class="module-visual"><img src="assets/module-visuals/module-13.jpg" alt="Hình ảnh trực quan cho Module 13: Thay đổi, học hỏi và thói quen" loading="lazy"><figcaption>Trực quan hóa: Module 13: Thay đổi, học hỏi và thói quen</figcaption></figure><h1 id="module-13-thay-doi-hoc-hoi-va-thoi-quen">Module 13: Thay đổi, học hỏi và thói quen</h1>
 <p><strong>Vì sao hiểu đúng vẫn chưa đủ để hành vi thay đổi.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2368,7 +2520,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Thay đổi bền là thiết kế lại tín hiệu, khả năng, phần thưởng và danh tính nghề nghiệp.</p></section><section class="lesson" id="Module-14-coaching-phat-trien-va-uy-quyen"><div class="source-label">Module-14-coaching-phat-trien-va-uy-quyen.md</div><h1 id="module-14-coaching-phat-trien-con-nguoi-va-uy-quyen">Module 14: Coaching, phát triển con người và ủy quyền</h1>
+<p>Thay đổi bền là thiết kế lại tín hiệu, khả năng, phần thưởng và danh tính nghề nghiệp.</p></section><section class="lesson" id="Module-14-coaching-phat-trien-va-uy-quyen"><div class="source-label">Module-14-coaching-phat-trien-va-uy-quyen.md</div><figure class="module-visual"><img src="assets/module-visuals/module-14.jpg" alt="Hình ảnh trực quan cho Module 14: Coaching, phát triển con người và ủy quyền" loading="lazy"><figcaption>Trực quan hóa: Module 14: Coaching, phát triển con người và ủy quyền</figcaption></figure><h1 id="module-14-coaching-phat-trien-con-nguoi-va-uy-quyen">Module 14: Coaching, phát triển con người và ủy quyền</h1>
 <p><strong>Giúp người khác lớn lên mà không làm thay trách nhiệm của họ.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2508,7 +2660,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Phát triển con người là chuyển dần quyền suy nghĩ, quyết định và học hỏi về cho người thực hiện.</p></section><section class="lesson" id="Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich"><div class="source-label">Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich.md</div><h1 id="module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich">Module 15: Văn hóa, biểu tượng và hệ thống khuyến khích</h1>
+<p>Phát triển con người là chuyển dần quyền suy nghĩ, quyết định và học hỏi về cho người thực hiện.</p></section><section class="lesson" id="Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich"><div class="source-label">Module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich.md</div><figure class="module-visual"><img src="assets/module-visuals/module-15.jpg" alt="Hình ảnh trực quan cho Module 15: Văn hóa, biểu tượng và hệ thống khuyến khích" loading="lazy"><figcaption>Trực quan hóa: Module 15: Văn hóa, biểu tượng và hệ thống khuyến khích</figcaption></figure><h1 id="module-15-van-hoa-bieu-tuong-va-he-thong-khuyen-khich">Module 15: Văn hóa, biểu tượng và hệ thống khuyến khích</h1>
 <p><strong>Văn hóa là điều hệ thống dạy con người làm khi không ai nhìn.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2648,7 +2800,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Văn hóa không nằm trong poster; nó nằm trong hành vi được thăng chức, câu chuyện được kể và vấn đề được bỏ qua.</p></section><section class="lesson" id="Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi"><div class="source-label">Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi.md</div><h1 id="module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi-quan-ly">Module 16: Sức khỏe tâm lý, burnout và ranh giới quản lý</h1>
+<p>Văn hóa không nằm trong poster; nó nằm trong hành vi được thăng chức, câu chuyện được kể và vấn đề được bỏ qua.</p></section><section class="lesson" id="Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi"><div class="source-label">Module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi.md</div><figure class="module-visual"><img src="assets/module-visuals/module-16.jpg" alt="Hình ảnh trực quan cho Module 16: Sức khỏe tâm lý, burnout và ranh giới quản lý" loading="lazy"><figcaption>Trực quan hóa: Module 16: Sức khỏe tâm lý, burnout và ranh giới quản lý</figcaption></figure><h1 id="module-16-suc-khoe-tam-ly-burnout-va-ranh-gioi-quan-ly">Module 16: Sức khỏe tâm lý, burnout và ranh giới quản lý</h1>
 <p><strong>Nhận biết rủi ro con người mà không đóng vai bác sĩ hay nhà trị liệu.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2788,7 +2940,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Quản lý có trách nhiệm tạo điều kiện làm việc lành mạnh và biết khi nào cần chuyển tuyến chuyên môn.</p></section><section class="lesson" id="Module-17-khung-hoang-sai-pham-va-an-toan"><div class="source-label">Module-17-khung-hoang-sai-pham-va-an-toan.md</div><h1 id="module-17-khung-hoang-sai-pham-va-an-toan">Module 17: Khủng hoảng, sai phạm và an toàn</h1>
+<p>Quản lý có trách nhiệm tạo điều kiện làm việc lành mạnh và biết khi nào cần chuyển tuyến chuyên môn.</p></section><section class="lesson" id="Module-17-khung-hoang-sai-pham-va-an-toan"><div class="source-label">Module-17-khung-hoang-sai-pham-va-an-toan.md</div><figure class="module-visual"><img src="assets/module-visuals/module-17.jpg" alt="Hình ảnh trực quan cho Module 17: Khủng hoảng, sai phạm và an toàn" loading="lazy"><figcaption>Trực quan hóa: Module 17: Khủng hoảng, sai phạm và an toàn</figcaption></figure><h1 id="module-17-khung-hoang-sai-pham-va-an-toan">Module 17: Khủng hoảng, sai phạm và an toàn</h1>
 <p><strong>Giữ con người, sự thật và trách nhiệm khi tình huống khó leo thang.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
@@ -2928,7 +3080,7 @@ Khi nào cần HR, pháp lý, chuyên gia sức khỏe tâm thần hoặc cấp 
 <tr><td>Đạo đức</td><td>Tâm lý học phải tăng tự chủ và trách nhiệm.</td><td>Biến hiểu biết thành thao túng.</td><td>Ứng dụng này có minh bạch và công bằng không?</td></tr>
 </table></div>
 <h2 id="8-mot-cau-de-nho-toan-bo-module">8. Một câu để nhớ toàn bộ module</h2>
-<p>Trong khủng hoảng, nhiệm vụ đầu tiên là bảo vệ an toàn và sự thật; nhiệm vụ tiếp theo là học và sửa hệ thống.</p></section><section class="lesson" id="Module-18-bang-chung-do-luong-va-thuc-nghiem"><div class="source-label">Module-18-bang-chung-do-luong-va-thuc-nghiem.md</div><h1 id="module-18-bang-chung-do-luong-va-thuc-nghiem-trong-lanh-dao">Module 18: Bằng chứng, đo lường và thực nghiệm trong lãnh đạo</h1>
+<p>Trong khủng hoảng, nhiệm vụ đầu tiên là bảo vệ an toàn và sự thật; nhiệm vụ tiếp theo là học và sửa hệ thống.</p></section><section class="lesson" id="Module-18-bang-chung-do-luong-va-thuc-nghiem"><div class="source-label">Module-18-bang-chung-do-luong-va-thuc-nghiem.md</div><figure class="module-visual"><img src="assets/module-visuals/module-18.jpg" alt="Hình ảnh trực quan cho Module 18: Bằng chứng, đo lường và thực nghiệm trong lãnh đạo" loading="lazy"><figcaption>Trực quan hóa: Module 18: Bằng chứng, đo lường và thực nghiệm trong lãnh đạo</figcaption></figure><h1 id="module-18-bang-chung-do-luong-va-thuc-nghiem-trong-lanh-dao">Module 18: Bằng chứng, đo lường và thực nghiệm trong lãnh đạo</h1>
 <p><strong>Ra quyết định nhân sự bằng dữ kiện tốt hơn, không bằng vẻ khoa học.</strong></p>
 <p><strong>Định dạng:</strong> Bài học first-principles cho cấp quản lý, lãnh đạo, trưởng nhóm và người ra quyết định trong tổ chức, có khái niệm, cơ chế, ví dụ, phản ví dụ, công cụ thực hành và câu hỏi ứng dụng.</p>
 <hr>
